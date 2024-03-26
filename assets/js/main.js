@@ -185,21 +185,6 @@ var projectData = [
     });
   }
   
-  
-  
-
-
-
-/*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
-
-// (function() {
-//   "use strict";
-
-  /**
-   * Easy selector helper function
-   */
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -209,9 +194,6 @@ var projectData = [
     }
   }
 
-  /**
-   * Easy event listener function
-   */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
 
@@ -497,16 +479,6 @@ function appendTestimonials(testimonials) {
     });
   
   }
-  
-  // Call the function passing projectData
-
-  
-  /**
-   * Initiate portfolio lightbox 
-   */
-
-
-// })()
 var typed = new Typed(".typing", {
   strings: ["Full Stack Developer","Backend Specialist","Software Engineer", "Website Developer", "Coder"],
   typeSpeed: 100,
