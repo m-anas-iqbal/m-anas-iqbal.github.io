@@ -319,7 +319,7 @@ var projectData = [
    */
  
     // Function to dynamically append skills
-    function appendSkills() {
+    function appendSkills(skillsData) {
       var skillsContent = document.getElementById('skills-content');
   
       skillsData.forEach(function(skill) {
@@ -400,65 +400,6 @@ function appendTestimonials(testimonials) {
   });
 
 }
-
-
-// function populatePortfolioItems(projectData) {
-//   const portfoliosList = document.querySelector(".portfolios-list");
-  
-//   // Clear previous content
-//   portfoliosList.innerHTML = '';
-
-//   // Loop through projectData
-//   projectData.forEach((project, index) => {
-//     // Create portfolio item HTML
-//     const portfolioItemHTML = `
-//       <div class="col-lg-4 col-md-6 portfolio-item filter-${project.category[0]}">
-//         <div class="portfolio-wrap">
-//           <img src="${project.image}" class="img-fluid" alt="${project.title}">
-//           <div class="portfolio-info">
-//             <a href="detail.html?project=${index}" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Project Details">
-//               <h4>${project.title}</h4>
-//             </a>
-//             <p>${project.category[1]}</p>
-//           </div>
-//         </div>
-//       </div>
-//     `;
-    
-//     // Append portfolio item HTML to portfoliosList
-//     portfoliosList.innerHTML += portfolioItemHTML;
-//   });
-// }
-
-// // Call the function passing projectData
-// populatePortfolioItems(projectData);
-//   /**
-//    * Porfolio isotope and filter
-//    */
-//   window.addEventListener('load', () => {
-//     let portfolioContainer = select('.portfolio-container');
-//     if (portfolioContainer) {
-//       let portfolioIsotope = new Isotope(portfolioContainer, {
-//         itemSelector: '.portfolio-item',
-//         layoutMode: 'fitRows'
-//       });
-
-//       let portfolioFilters = select('#portfolio-flters li', true);
-
-//       on('click', '#portfolio-flters li', function(e) {
-//         e.preventDefault();
-//         portfolioFilters.forEach(function(el) {
-//           el.classList.remove('filter-active');
-//         });
-//         this.classList.add('filter-active');
-
-//         portfolioIsotope.arrange({
-//           filter: this.getAttribute('data-filter')
-//         });
-//       }, true);
-//     }
-
-//   });
   function populatePortfolioItems(projectData) {
     const portfoliosList = document.querySelector(".portfolios-list");
     
