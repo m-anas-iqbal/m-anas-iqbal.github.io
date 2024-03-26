@@ -58,8 +58,12 @@ body {
 
 body::before {
   content: "";
+
+  background-blend-mode: color-dodge;
+  filter: brightness(0.4);
+  /* background-color: #00000041; */
   position: fixed;
-  background: #040404 url("../img/bg.jpg") top right no-repeat;
+  background: url("../img/bg.jpg") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -613,6 +617,8 @@ section .container {
 }
 
 .testimonials .testimonial-item p {
+  height: 160px;
+  overflow: auto;
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;
