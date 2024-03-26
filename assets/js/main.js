@@ -40,7 +40,7 @@ var projectData = [
       "link": "https://frimix.com/",
       "category": ["web","Web Development"],
       "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "this is in created with https://gowushu.com/",
+      "description": "Frimix is an event booking platform designed to streamline the ticket purchasing process by enabling users to conveniently acquire tickets online. With Frimix, users can seamlessly obtain their tickets without the need for physical copies, as each ticket is associated with a unique digital ticket number. Additionally, Frimix provides an intuitive admin panel that allows administrators to add new tickets, configure ticket details, and efficiently manage ticket orders. Through the admin panel, administrators have full control over ticket settings and can easily oversee and process ticket orders.",
       "image": "assets/img/portfolio/frimix-home-page.png",
       "slider": [
           "assets/img/portfolio/frimix-home-page.png",
@@ -63,22 +63,22 @@ var projectData = [
           "assets/img/portfolio/atlantis-form1.png",
           "assets/img/portfolio/atlantis-form2.png"
       ]
-  },
-  {
-      "title": "Frimix",
-      "link": "https://www.frimix.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Project 1 Description",
-      "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
-      "slider": [
-          "assets/img/portfolio/mapbirdy-user-dashboard.png",
-          "assets/img/portfolio/mapbirdy-vote-comment.png",
-          "assets/img/portfolio/mapbirdy-search.png",
-          "assets/img/portfolio/mapbirdy-map-maker.png",
-          "assets/img/portfolio/mapbirdy-login.png"
-      ]
   }
+  // ,{
+  //     "title": "Frimix",
+  //     "link": "https://www.frimix.com/",
+  //     "category": ["web","Web Development"],
+  //     "tech": "HTML, CSS, JS, Laravel, and PHP",
+  //     "description": "Project 1 Description",
+  //     "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
+  //     "slider": [
+  //         "assets/img/portfolio/mapbirdy-user-dashboard.png",
+  //         "assets/img/portfolio/mapbirdy-vote-comment.png",
+  //         "assets/img/portfolio/mapbirdy-search.png",
+  //         "assets/img/portfolio/mapbirdy-map-maker.png",
+  //         "assets/img/portfolio/mapbirdy-login.png"
+  //     ]
+  // }
 ];
 
 
