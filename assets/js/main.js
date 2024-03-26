@@ -137,7 +137,18 @@ var projectData = [
     { "skill": "Swift", "percentage": "30%" },
     { "skill": "Express JS", "percentage": "30%" }
   ];
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+});
 
+document.onkeydown = function (e) {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+        return false;
+    }
+};
+document.onmousedown = function (e) {
+    e.preventDefault();
+};
   function populatePortfolioDetails(projectData) {
     // Get project ID from URL
     var url = window.location.href;
@@ -184,7 +195,7 @@ var projectData = [
       }
     });
   }
-  
+
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
