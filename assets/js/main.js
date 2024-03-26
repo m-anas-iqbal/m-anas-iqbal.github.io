@@ -8,8 +8,8 @@ var projectData = [
       "link": "https://mapbirdy.com/",
       "category": ["web","Web Development"],
       "tech": "HTML, CSS, JS, Laravel, and Google Map API",
-      "description": "MapBirdy is a dynamic web platform designed to empower communities by facilitating engagement and collaboration on local issues. Utilizing Google Maps API and developed with Laravel, PHP, JavaScript, HTML, and CSS, MapBirdy provides an intuitive interface for users to participate in voting and discussions related to their areas of interest. With MapBirdy, administrators can easily create polls and questions, enabling users to vote and share their opinions on various topics affecting their neighborhoods. Additionally, the platform allows for interactive commenting, fostering dialogue and community involvement. MapBirdy's seamless integration of Google Maps API ensures accurate location-based interactions, while its robust backend developed with Laravel and PHP ensures scalability, security, and performance. Whether it's gathering feedback on proposed developments, identifying community priorities, or simply facilitating neighborhood conversations, MapBirdy empowers users to make their voices heard and drive positive change in their communities.",
-      "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
+      "description": "MapBirdy is a dynamic web platform designed for community engagement and collaboration on local issues. Built with Laravel, PHP, JavaScript, HTML, and CSS, it offers an intuitive interface for voting, discussions, and interactive commenting. Administrators can create polls and questions, while users can vote and share opinions on neighborhood topics. With seamless Google Maps API integration, accurate location-based interactions are ensured. MapBirdy empowers users to drive positive change by making their voices heard on community priorities and proposed developments.",
+      "image": "assets/img/portfolio/mapbirdy-login.png",
       "slider": [
           "assets/img/portfolio/mapbirdy-user-dashboard.png",
           "assets/img/portfolio/mapbirdy-vote-comment.png",
@@ -19,18 +19,49 @@ var projectData = [
       ]
   },
   {
+      "title": "Dukan24h",
+      "link": "https://dukan24h.com/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, Laravel, and PHP",
+      "description": "Dukan24h is an encompassing e-commerce platform with an integrated shop management system. Catering to a diverse user base, it serves three primary roles: consumers, legal entities, and internal staff. Consumers appreciate its user-friendly interface, while legal entities benefit from its compliance features. The platform also offers robust internal functionalities such as point-of-sale systems and comprehensive reporting tools for sales, purchases, and profit/loss analysis.",
+      "image": "assets/img/portfolio/dukan24h-home.png",
+      "slider": [
+          "assets/img/portfolio/dukan24h-home.png",
+          "assets/img/portfolio/dukan24h-contact.png",
+          "assets/img/portfolio/dukan24h-faq.png",
+          "assets/img/portfolio/dukan24h-search-page.png",
+          "assets/img/portfolio/dukan24h-search.png",
+          "assets/img/portfolio/dukan24h-shop-page.png",
+          "assets/img/portfolio/dukan24h-shop-register.png"
+      ]
+  },
+  {
+      "title": "Frimix",
+      "link": "https://frimix.com/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, Laravel, and PHP",
+      "description": "this is in created with https://gowushu.com/",
+      "image": "assets/img/portfolio/frimix-home-page.png",
+      "slider": [
+          "assets/img/portfolio/frimix-home-page.png",
+          "assets/img/portfolio/frimix-contact.png",
+          "assets/img/portfolio/frimix-with-login.png",
+          "assets/img/portfolio/frimix-youtube-and-about.png",
+          "assets/img/portfolio/frimix-upcomming.png"
+      ]
+  },
+  {
       "title": "Atlantis",
       "link": "https://stage446.yourdesigndemo.net/",
       "category": ["web","Web Development"],
       "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Project 1 Description",
-      "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
+      "description": "Atlantis is interconnected with an administrative interface, allowing administrators to seamlessly add and oversee plans and orders. Currently in the developmental phase, the site's primary objective is to facilitate the creation and management of spa covers.",
+      "image": "assets/img/portfolio/atlantis-home.png",
       "slider": [
-          "assets/img/portfolio/mapbirdy-user-dashboard.png",
-          "assets/img/portfolio/mapbirdy-vote-comment.png",
-          "assets/img/portfolio/mapbirdy-search.png",
-          "assets/img/portfolio/mapbirdy-map-maker.png",
-          "assets/img/portfolio/mapbirdy-login.png"
+          "assets/img/portfolio/atlantis-home.png",
+          "assets/img/portfolio/atlantis-shape.png",
+          "assets/img/portfolio/atlantis-form1.png",
+          "assets/img/portfolio/atlantis-form2.png"
       ]
   },
   {
@@ -39,21 +70,6 @@ var projectData = [
       "category": ["web","Web Development"],
       "tech": "HTML, CSS, JS, Laravel, and PHP",
       "description": "Project 1 Description",
-      "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
-      "slider": [
-          "assets/img/portfolio/mapbirdy-user-dashboard.png",
-          "assets/img/portfolio/mapbirdy-vote-comment.png",
-          "assets/img/portfolio/mapbirdy-search.png",
-          "assets/img/portfolio/mapbirdy-map-maker.png",
-          "assets/img/portfolio/mapbirdy-login.png"
-      ]
-  },
-  {
-      "title": "Frimix",
-      "link": "https://signup.gowushu.com/login",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "this is in created with https://gowushu.com/",
       "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
       "slider": [
           "assets/img/portfolio/mapbirdy-user-dashboard.png",
