@@ -36,6 +36,37 @@ var projectData = [
       ]
   },
   {
+      "title": "HR managment System",
+      "link": "#",
+      "category": ["software","Software Development"],
+      "tech": "HTML, CSS, JS, Laravel, and PHP",
+      "description": "The HR Management System is an internal web application developed in Laravel, PHP, HTML, CSS, and JavaScript. It offers comprehensive functionality including employee management, attendance tracking, leave management, payroll processing, support ticket system, and more. Designed to streamline HR processes, it provides a centralized platform for efficient management of HR-related tasks and data within the organization.",
+      "image": "assets/img/portfolio/hrms-admin-page.png",
+      "slider": [
+          "assets/img/portfolio/hrms-admin-page.png",
+          "assets/img/portfolio/hrms-login.png",
+          "assets/img/portfolio/hrms-employee.png",
+          "assets/img/portfolio/hrms-menu.png",
+          "assets/img/portfolio/hrms-checkin.png",
+          "assets/img/portfolio/hrms-report.png"
+      ]
+  },
+  {
+      "title": "Towel managment System",
+      "link": "#",
+      "category": ["software","Software Development"],
+      "tech": "HTML, CSS, JS, and PHP",
+      "description": "",
+      "image": "assets/img/portfolio/frimix-home-page.png",
+      "slider": [
+          "assets/img/portfolio/frimix-home-page.png",
+          "assets/img/portfolio/frimix-contact.png",
+          "assets/img/portfolio/frimix-with-login.png",
+          "assets/img/portfolio/frimix-youtube-and-about.png",
+          "assets/img/portfolio/frimix-upcomming.png"
+      ]
+  },
+  {
       "title": "Frimix",
       "link": "https://frimix.com/",
       "category": ["web","Web Development"],
@@ -64,7 +95,8 @@ var projectData = [
           "assets/img/portfolio/atlantis-form2.png"
       ]
   }
-  // ,{
+  // ,
+  // {
   //     "title": "Frimix",
   //     "link": "https://www.frimix.com/",
   //     "category": ["web","Web Development"],
@@ -79,6 +111,7 @@ var projectData = [
   //         "assets/img/portfolio/mapbirdy-login.png"
   //     ]
   // }
+  // ,
 ];
 
 
@@ -93,16 +126,16 @@ var projectData = [
       position: "Manager - Orient Metal"
     },
     {
-      quote: "Anas is skilled, responsive, and works efficiently. He gives it his all in the project and is quite accommodating. Highly recommend.",
+      quote: "Anas is skilled, responsive, and works efficiently. He gives it his all in the project and is quite accommodating.",
       image: "assets/img/testimonials/avatar.jpg",
-      name: "Vinnie Baliyan",
-      position: "CEO - MapBirdy"
+      name: "Vinnie Pelia",
+      position: "Founder - MapBirdy"
     },
     {
       quote: "Anas is amazing. He was really patient and professional to get me through the whole process. Highly recommended.",
       image: "https://media.licdn.com/dms/image/D5635AQEOqpoQjCmioA/profile-framedphoto-shrink_200_200/0/1696409840941?e=1711998000&v=beta&t=4O9pNkRIQrWz4FP31jZQbSjbKVpty01Ekfg9t4FOmTQ",
       name: "Tahir Qureshi",
-      position: "CEO - softwebpk.com"
+      position: "Founder - softwebpk.com"
     },
     {
       quote: "It was a pleasure working with Anas Iqbal. I had a short deadline and platform limitations that prevented me from finalising content management on the website the way I wanted. He was incredibly dedicated to fix this and tweak it to be exactly how I imagined it on desktop as well as mobile devices. I could not recommend him enough and I will 100% continue working with him. Whoever is looking at this feedback should too.",
@@ -175,7 +208,7 @@ document.onmousedown = function (e) {
       <ul>
         <li><strong>Category</strong>: ${projectData[idVal].category[1]}</li>
         <li><strong>Languages</strong>: ${projectData[idVal].tech}</li>
-        <li><strong>Project URL</strong>: <a href="${projectData[idVal].link}" target="_blank">${projectData[idVal].link}</a></li>
+        <li><strong>Project URL</strong>: <a href="${projectData[idVal].link}"  target="_blank" rel="noopener noreferrer"  >${projectData[idVal].link}</a></li>
       </ul>
       <p>${projectData[idVal].description}</p>
     `;
