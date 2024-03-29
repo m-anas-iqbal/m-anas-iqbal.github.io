@@ -55,7 +55,16 @@ body {
   }
 }
 
-
+.download-btn-cv{
+  float: right;
+    color: #ff9100;
+    cursor: pointer;
+    font-size: 22px;
+    transition: 0.4 ease;
+}
+.download-btn-cv:hover{
+    color: #ffc400;
+}
 body::before {
   content: "";
 

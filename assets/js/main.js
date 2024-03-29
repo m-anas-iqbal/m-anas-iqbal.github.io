@@ -166,6 +166,25 @@ var projectData = [
           "assets/img/portfolio/christan-ecom-kits.png",
       ]
   },
+  {
+      "title": "NP Car rentals llc",
+      "link": "#",
+      "category": ["web","Web Development"],
+      "tech": "React, HTML, CSS, JS, and Laravel",
+      "description": "NP Car Rentals LLC is a premier Dubai-based car rental service offering seamless vehicle rentals through a sophisticated tech stack comprising React and Laravel. With an integrated payment method powered by Stripe, customers can effortlessly book their desired vehicles online, ensuring a hassle-free rental experience. Whether it's for business or leisure, NP Car Rentals LLC provides top-notch service, reliability, and convenience, making it the preferred choice for individuals and businesses seeking quality transportation solutions in Dubai.",
+      "image": "assets/img/portfolio/rental_car-home.png",
+      "slider": [
+          "assets/img/portfolio/rental_car-home.png",
+          "assets/img/portfolio/rental_car-filter.png",
+          "assets/img/portfolio/rental_car-detail.png",
+          "assets/img/portfolio/rental_car-detail2.png",
+          "assets/img/portfolio/rental_car-checkout.png",
+          "assets/img/portfolio/rental_car-payment.png",
+          "assets/img/portfolio/rental_car-admin.png",
+          "assets/img/portfolio/rental_car-admin-user.png",
+          "assets/img/portfolio/rental_car-admin-payment.png",
+      ]
+  },
   // ,
 ];
 
