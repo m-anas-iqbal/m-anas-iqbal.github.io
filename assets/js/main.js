@@ -44,11 +44,26 @@ var projectData = [
       "image": "assets/img/portfolio/hrms-admin-page.png",
       "slider": [
           "assets/img/portfolio/hrms-admin-page.png",
-          "assets/img/portfolio/hrms-login.png",
           "assets/img/portfolio/hrms-employee.png",
-          "assets/img/portfolio/hrms-menu.png",
           "assets/img/portfolio/hrms-checkin.png",
+          "assets/img/portfolio/hrms-menu.png",
+          "assets/img/portfolio/hrms-login.png",
           "assets/img/portfolio/hrms-report.png"
+      ]
+  },
+  {
+      "title": "Chatbot",
+      "link": "#",
+      "category": ["software","Software Development"],
+      "tech": "HTML, CSS, JS, and PHP",
+      "description": "This chatbot is seamlessly integrated with the WhatsApp API, enabling users to interact with it directly through WhatsApp. It boasts a robust question-and-answer system with multiple layers of inquiries, allowing for a dynamic conversational experience. Additionally, users can initiate conversations by searching for keywords within questions. If users prefer to speak with a human agent instead, they can simply request assistance by typing (#), prompting the system to connect them with an available agent via the agent portal. Once an agent accepts the chat request, they can engage in a conversation with the user, addressing their queries and concerns before closing the session. This integrated system ensures efficient and effective communication between users and agents, enhancing overall customer experience.",
+      "image": "assets/img/portfolio/chatbot-login.png",
+      "slider": [
+          "assets/img/portfolio/chatbot-login.png",
+          "assets/img/portfolio/chatbot.png",
+          "assets/img/portfolio/chatbot-question_add.png",
+          "assets/img/portfolio/chatbot-question_word.png",
+          "assets/img/portfolio/chatbot-report.png"
       ]
   },
   {
@@ -56,14 +71,15 @@ var projectData = [
       "link": "#",
       "category": ["software","Software Development"],
       "tech": "HTML, CSS, JS, and PHP",
-      "description": "",
-      "image": "assets/img/portfolio/frimix-home-page.png",
+      "description": "The Towel Management System is custom software designed for textile mills to efficiently manage various aspects of yarn processing and inventory management. It facilitates tracking of empty and loaded beams, yarn inward and outward movements, cone rewinding, and generates comprehensive reports on purchases, deliveries, and production activities. With user-friendly interfaces, robust security measures, and potential for integration with other systems, it streamlines operations and enhances productivity in textile manufacturing processes.",
+      "image": "assets/img/portfolio/towel-dashboard.png",
       "slider": [
-          "assets/img/portfolio/frimix-home-page.png",
-          "assets/img/portfolio/frimix-contact.png",
-          "assets/img/portfolio/frimix-with-login.png",
-          "assets/img/portfolio/frimix-youtube-and-about.png",
-          "assets/img/portfolio/frimix-upcomming.png"
+        "assets/img/portfolio/towel-dashboard.png",
+        "assets/img/portfolio/towel-login.png",
+        "assets/img/portfolio/towel-po.png",
+        "assets/img/portfolio/towel-report.png",
+        "assets/img/portfolio/towel-rewind.png",
+        "assets/img/portfolio/towel-wastage.png"
       ]
   },
   {
@@ -72,7 +88,7 @@ var projectData = [
       "category": ["web","Web Development"],
       "tech": "HTML, CSS, JS, Laravel, and PHP",
       "description": "Frimix is an event booking platform designed to streamline the ticket purchasing process by enabling users to conveniently acquire tickets online. With Frimix, users can seamlessly obtain their tickets without the need for physical copies, as each ticket is associated with a unique digital ticket number. Additionally, Frimix provides an intuitive admin panel that allows administrators to add new tickets, configure ticket details, and efficiently manage ticket orders. Through the admin panel, administrators have full control over ticket settings and can easily oversee and process ticket orders.",
-      "image": "assets/img/portfolio/frimix-home-page.png",
+      "image": "assets/img/portfolio/frimix-with-login.png",
       "slider": [
           "assets/img/portfolio/frimix-home-page.png",
           "assets/img/portfolio/frimix-contact.png",
@@ -95,22 +111,6 @@ var projectData = [
           "assets/img/portfolio/atlantis-form2.png"
       ]
   }
-  // ,
-  // {
-  //     "title": "Frimix",
-  //     "link": "https://www.frimix.com/",
-  //     "category": ["web","Web Development"],
-  //     "tech": "HTML, CSS, JS, Laravel, and PHP",
-  //     "description": "Project 1 Description",
-  //     "image": "assets/img/portfolio/mapbirdy-user-dashboard.png",
-  //     "slider": [
-  //         "assets/img/portfolio/mapbirdy-user-dashboard.png",
-  //         "assets/img/portfolio/mapbirdy-vote-comment.png",
-  //         "assets/img/portfolio/mapbirdy-search.png",
-  //         "assets/img/portfolio/mapbirdy-map-maker.png",
-  //         "assets/img/portfolio/mapbirdy-login.png"
-  //     ]
-  // }
   // ,
 ];
 
