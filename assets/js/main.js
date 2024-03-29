@@ -108,9 +108,64 @@ var projectData = [
           "assets/img/portfolio/atlantis-home.png",
           "assets/img/portfolio/atlantis-shape.png",
           "assets/img/portfolio/atlantis-form1.png",
+          "assets/img/portfolio/atlantis-form1.png",
+          "assets/img/portfolio/atlantis-admin.png",
           "assets/img/portfolio/atlantis-form2.png"
       ]
-  }
+  },
+  {
+      "title": "Brewery Recording Studio",
+      // "link": "https://breweryrecording.com/",
+      "link": "https://stage449.yourdesigndemo.net/",
+      "category": ["web","Web Development"],
+      "tech": "React ,HTML, CSS, JS, and Laravel",
+      "description": "Brewery Recording Studio is a technology-driven portfolio website built using React, HTML, CSS, and JavaScript (JS) on the frontend, with Laravel powering the backend. It features a user-friendly interface showcasing the studio's services, equipment, projects, and client testimonials. The website integrates seamlessly with Laravel's API for booking recording sessions directly through the site. An admin panel enables easy management of bookings, content updates, and analytics. With responsive design and interactive elements, Brewery Recording Studio offers a dynamic and engaging experience for both clients and administrators.",
+      "image": "assets/img/portfolio/brewery-home.png",
+      "slider": [
+          "assets/img/portfolio/brewery-home.png",
+          "assets/img/portfolio/brewery-admin.png",
+          "assets/img/portfolio/brewery-studio.png",
+          "assets/img/portfolio/brewery-serice.png",
+          "assets/img/portfolio/brewery-staff.png",
+          "assets/img/portfolio/brewery-booking.png",
+      ]
+  },
+  {
+      "title": "WTSF",
+      "link": "https://wtjsf.org/login",
+      "category": ["web","Web Development"],
+      "tech": "Wordpress, HTML, CSS, JS, and Codeigniter",
+      "description": "WTSF (We The Strong Foundation) is a US Federal proof non-profit Organization with a WordPress frontend and CodeIgniter backend. Users can register on the site to access CodeIgniter-powered features, including event ticketing. An administrator panel allows for user management, event creation, and content updates. The site integrates HTML, CSS, and JS for a seamless and interactive user experience. Additionally, payment integration with PayPal facilitates secure and convenient transactions for event tickets.",
+      "image": "assets/img/portfolio/wtjsf-login.png",
+      "slider": [
+        "assets/img/portfolio/wtjsf-home-word.png",
+        "assets/img/portfolio/w.png",
+        "assets/img/portfolio/wtjsf-login.png",
+          "assets/img/portfolio/wtjsf-admin-page.png",
+          "assets/img/portfolio/wtjsf-admin-event.png",
+          "assets/img/portfolio/wtjsf-event1.png",
+          "assets/img/portfolio/wtjsf-event2.png",
+          "assets/img/portfolio/wtjsf-event3.png",
+          "assets/img/portfolio/wtjsf-contact.png",
+      ]
+  },
+  {
+      "title": "Christan Creations Unlimited",
+      "link": "https://stage266.yourdesigndemo.net/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, and Laravel",
+      "description": "'Christian Creations Unlimited' is an e-commerce site offering Christian-themed jewelry. Using HTML, CSS, JavaScript, and Laravel, it delivers a seamless shopping experience. Laravel manages user roles (consultant, member, administrator) and backend tasks like authentication and order processing. Stripe integration ensures secure payments.",
+      "image": "assets/img/portfolio/christan-ecom-home.png",
+      "slider": [
+          "assets/img/portfolio/ch.png",
+          "assets/img/portfolio/christan-ecom-home.png",
+          "assets/img/portfolio/christan-ecom-product-page.png",
+          "assets/img/portfolio/christan-ecom-feature.png",
+          "assets/img/portfolio/christan-admin-product.png",
+          "assets/img/portfolio/christan-login.png",
+          "assets/img/portfolio/christan-ecom-kits.png",
+      ]
+  },
   // ,
 ];
 
