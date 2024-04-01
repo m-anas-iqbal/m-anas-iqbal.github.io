@@ -4,35 +4,24 @@
 // project data in JSON format
 var projectData = [
   {
-      "title": "MapBirdy",
-      "link": "https://mapbirdy.com/",
+      "title": "Manage Your School - (MYS)",
+      "link": "#",
       "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and Google Map API",
-      "description": "MapBirdy is a dynamic web platform designed for community engagement and collaboration on local issues. Built with Laravel, PHP, JavaScript, HTML, and CSS, it offers an intuitive interface for voting, discussions, and interactive commenting. Administrators can create polls and questions, while users can vote and share opinions on neighborhood topics. With seamless Google Maps API integration, accurate location-based interactions are ensured. MapBirdy empowers users to drive positive change by making their voices heard on community priorities and proposed developments.",
-      "image": "assets/img/portfolio/mapbirdy-login.png",
+      "tech": "HTML, CSS, JS, and Laravel",
+      "description": "Introducing our latest innovation: a comprehensive School Management System designed to revolutionize the education sector! With seamless online admission capabilities and interactive panels for parents and students, administrative tasks are simplified, admissions are streamlined, and communication between school stakeholders is greatly enhanced. Embrace efficiency and bid farewell to paperwork with our cutting-edge solution!",
+      "image": "assets/img/portfolio/mys-home.png",
       "slider": [
-          "assets/img/portfolio/mapbirdy-user-dashboard.png",
-          "assets/img/portfolio/mapbirdy-vote-comment.png",
-          "assets/img/portfolio/mapbirdy-search.png",
-          "assets/img/portfolio/mapbirdy-map-maker.png",
-          "assets/img/portfolio/mapbirdy-login.png"
-      ]
-  },
-  {
-      "title": "Dukan24h",
-      "link": "https://dukan24h.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Dukan24h is an encompassing e-commerce platform with an integrated shop management system. Catering to a diverse user base, it serves three primary roles: consumers, legal entities, and internal staff. Consumers appreciate its user-friendly interface, while legal entities benefit from its compliance features. The platform also offers robust internal functionalities such as point-of-sale systems and comprehensive reporting tools for sales, purchases, and profit/loss analysis.",
-      "image": "assets/img/portfolio/dukan24h-home.png",
-      "slider": [
-          "assets/img/portfolio/dukan24h-home.png",
-          "assets/img/portfolio/dukan24h-contact.png",
-          "assets/img/portfolio/dukan24h-faq.png",
-          "assets/img/portfolio/dukan24h-search-page.png",
-          "assets/img/portfolio/dukan24h-search.png",
-          "assets/img/portfolio/dukan24h-shop-page.png",
-          "assets/img/portfolio/dukan24h-shop-register.png"
+        "assets/img/portfolio/mys-home.png",
+        "assets/img/portfolio/mys-about.png",
+        "assets/img/portfolio/mys-contact.png",
+          "assets/img/portfolio/mys-school-registration.png",
+          "assets/img/portfolio/mys-school-home.png",
+          "assets/img/portfolio/mys-school-adminission.png",
+        "assets/img/portfolio/mys-profile-update.png",
+          "assets/img/portfolio/mys-school-fees-type.png",
+          "assets/img/portfolio/mys-school-student.png",
+          "assets/img/portfolio/mys-school-edit-webhome.png",
+          "assets/img/portfolio/mys-school-admission-list.png",
       ]
   },
   {
@@ -49,52 +38,6 @@ var projectData = [
           "assets/img/portfolio/hrms-menu.png",
           "assets/img/portfolio/hrms-login.png",
           "assets/img/portfolio/hrms-report.png"
-      ]
-  },
-  {
-      "title": "Chatbot",
-      "link": "#",
-      "category": ["software","Software Development"],
-      "tech": "HTML, CSS, JS, and PHP",
-      "description": "This chatbot is seamlessly integrated with the WhatsApp API, enabling users to interact with it directly through WhatsApp. It boasts a robust question-and-answer system with multiple layers of inquiries, allowing for a dynamic conversational experience. Additionally, users can initiate conversations by searching for keywords within questions. If users prefer to speak with a human agent instead, they can simply request assistance by typing (#), prompting the system to connect them with an available agent via the agent portal. Once an agent accepts the chat request, they can engage in a conversation with the user, addressing their queries and concerns before closing the session. This integrated system ensures efficient and effective communication between users and agents, enhancing overall customer experience.",
-      "image": "assets/img/portfolio/chatbot-login.png",
-      "slider": [
-          "assets/img/portfolio/chatbot-login.png",
-          "assets/img/portfolio/chatbot.png",
-          "assets/img/portfolio/chatbot-question_add.png",
-          "assets/img/portfolio/chatbot-question_word.png",
-          "assets/img/portfolio/chatbot-report.png"
-      ]
-  },
-  {
-      "title": "Towel managment System",
-      "link": "#",
-      "category": ["software","Software Development"],
-      "tech": "HTML, CSS, JS, and PHP",
-      "description": "The Towel Management System is custom software designed for textile mills to efficiently manage various aspects of yarn processing and inventory management. It facilitates tracking of empty and loaded beams, yarn inward and outward movements, cone rewinding, and generates comprehensive reports on purchases, deliveries, and production activities. With user-friendly interfaces, robust security measures, and potential for integration with other systems, it streamlines operations and enhances productivity in textile manufacturing processes.",
-      "image": "assets/img/portfolio/towel-dashboard.png",
-      "slider": [
-        "assets/img/portfolio/towel-dashboard.png",
-        "assets/img/portfolio/towel-login.png",
-        "assets/img/portfolio/towel-po.png",
-        "assets/img/portfolio/towel-report.png",
-        "assets/img/portfolio/towel-rewind.png",
-        "assets/img/portfolio/towel-wastage.png"
-      ]
-  },
-  {
-      "title": "Frimix",
-      "link": "https://frimix.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Frimix is an event booking platform designed to streamline the ticket purchasing process by enabling users to conveniently acquire tickets online. With Frimix, users can seamlessly obtain their tickets without the need for physical copies, as each ticket is associated with a unique digital ticket number. Additionally, Frimix provides an intuitive admin panel that allows administrators to add new tickets, configure ticket details, and efficiently manage ticket orders. Through the admin panel, administrators have full control over ticket settings and can easily oversee and process ticket orders.",
-      "image": "assets/img/portfolio/frimix-with-login.png",
-      "slider": [
-          "assets/img/portfolio/frimix-home-page.png",
-          "assets/img/portfolio/frimix-contact.png",
-          "assets/img/portfolio/frimix-with-login.png",
-          "assets/img/portfolio/frimix-youtube-and-about.png",
-          "assets/img/portfolio/frimix-upcomming.png"
       ]
   },
   {
@@ -150,6 +93,40 @@ var projectData = [
       ]
   },
   {
+      "title": "NP Car rentals llc",
+      "link": "#",
+      "category": ["web","Web Development"],
+      "tech": "React, HTML, CSS, JS, and Laravel",
+      "description": "NP Car Rentals LLC is a premier Dubai-based car rental service offering seamless vehicle rentals through a sophisticated tech stack comprising React and Laravel. With an integrated payment method powered by Stripe, customers can effortlessly book their desired vehicles online, ensuring a hassle-free rental experience. Whether it's for business or leisure, NP Car Rentals LLC provides top-notch service, reliability, and convenience, making it the preferred choice for individuals and businesses seeking quality transportation solutions in Dubai.",
+      "image": "assets/img/portfolio/rental_car-home.png",
+      "slider": [
+          "assets/img/portfolio/rental_car-home.png",
+          "assets/img/portfolio/rental_car-filter.png",
+          "assets/img/portfolio/rental_car-detail.png",
+          "assets/img/portfolio/rental_car-detail2.png",
+          "assets/img/portfolio/rental_car-checkout.png",
+          "assets/img/portfolio/rental_car-payment.png",
+          "assets/img/portfolio/rental_car-admin.png",
+          "assets/img/portfolio/rental_car-admin-user.png",
+          "assets/img/portfolio/rental_car-admin-payment.png",
+      ]
+  },
+  {
+      "title": "Frimix",
+      "link": "https://frimix.com/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, Laravel, and PHP",
+      "description": "Frimix is an event booking platform designed to streamline the ticket purchasing process by enabling users to conveniently acquire tickets online. With Frimix, users can seamlessly obtain their tickets without the need for physical copies, as each ticket is associated with a unique digital ticket number. Additionally, Frimix provides an intuitive admin panel that allows administrators to add new tickets, configure ticket details, and efficiently manage ticket orders. Through the admin panel, administrators have full control over ticket settings and can easily oversee and process ticket orders.",
+      "image": "assets/img/portfolio/frimix-with-login.png",
+      "slider": [
+          "assets/img/portfolio/frimix-home-page.png",
+          "assets/img/portfolio/frimix-contact.png",
+          "assets/img/portfolio/frimix-with-login.png",
+          "assets/img/portfolio/frimix-youtube-and-about.png",
+          "assets/img/portfolio/frimix-upcomming.png"
+      ]
+  },
+  {
       "title": "Christan Creations Unlimited",
       "link": "https://stage266.yourdesigndemo.net/",
       "category": ["web","Web Development"],
@@ -164,6 +141,69 @@ var projectData = [
           "assets/img/portfolio/christan-admin-product.png",
           "assets/img/portfolio/christan-login.png",
           "assets/img/portfolio/christan-ecom-kits.png",
+      ]
+  },
+  {
+      "title": "MapBirdy",
+      "link": "https://mapbirdy.com/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, Laravel, and Google Map API",
+      "description": "MapBirdy is a dynamic web platform designed for community engagement and collaboration on local issues. Built with Laravel, PHP, JavaScript, HTML, and CSS, it offers an intuitive interface for voting, discussions, and interactive commenting. Administrators can create polls and questions, while users can vote and share opinions on neighborhood topics. With seamless Google Maps API integration, accurate location-based interactions are ensured. MapBirdy empowers users to drive positive change by making their voices heard on community priorities and proposed developments.",
+      "image": "assets/img/portfolio/mapbirdy-login.png",
+      "slider": [
+          "assets/img/portfolio/mapbirdy-user-dashboard.png",
+          "assets/img/portfolio/mapbirdy-vote-comment.png",
+          "assets/img/portfolio/mapbirdy-search.png",
+          "assets/img/portfolio/mapbirdy-map-maker.png",
+          "assets/img/portfolio/mapbirdy-login.png"
+      ]
+  },
+  {
+      "title": "Dukan24h",
+      "link": "https://dukan24h.com/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, Laravel, and PHP",
+      "description": "Dukan24h is an encompassing e-commerce platform with an integrated shop management system. Catering to a diverse user base, it serves three primary roles: consumers, legal entities, and internal staff. Consumers appreciate its user-friendly interface, while legal entities benefit from its compliance features. The platform also offers robust internal functionalities such as point-of-sale systems and comprehensive reporting tools for sales, purchases, and profit/loss analysis.",
+      "image": "assets/img/portfolio/dukan24h-home.png",
+      "slider": [
+          "assets/img/portfolio/dukan24h-home.png",
+          "assets/img/portfolio/dukan24h-contact.png",
+          "assets/img/portfolio/dukan24h-faq.png",
+          "assets/img/portfolio/dukan24h-search-page.png",
+          "assets/img/portfolio/dukan24h-search.png",
+          "assets/img/portfolio/dukan24h-shop-page.png",
+          "assets/img/portfolio/dukan24h-shop-register.png"
+      ]
+  },
+  {
+      "title": "Chatbot",
+      "link": "#",
+      "category": ["software","Software Development"],
+      "tech": "HTML, CSS, JS, and PHP",
+      "description": "This chatbot is seamlessly integrated with the WhatsApp API, enabling users to interact with it directly through WhatsApp. It boasts a robust question-and-answer system with multiple layers of inquiries, allowing for a dynamic conversational experience. Additionally, users can initiate conversations by searching for keywords within questions. If users prefer to speak with a human agent instead, they can simply request assistance by typing (#), prompting the system to connect them with an available agent via the agent portal. Once an agent accepts the chat request, they can engage in a conversation with the user, addressing their queries and concerns before closing the session. This integrated system ensures efficient and effective communication between users and agents, enhancing overall customer experience.",
+      "image": "assets/img/portfolio/chatbot-login.png",
+      "slider": [
+          "assets/img/portfolio/chatbot-login.png",
+          "assets/img/portfolio/chatbot.png",
+          "assets/img/portfolio/chatbot-question_add.png",
+          "assets/img/portfolio/chatbot-question_word.png",
+          "assets/img/portfolio/chatbot-report.png"
+      ]
+  },
+  {
+      "title": "Towel managment System",
+      "link": "#",
+      "category": ["software","Software Development"],
+      "tech": "HTML, CSS, JS, and PHP",
+      "description": "The Towel Management System is custom software designed for textile mills to efficiently manage various aspects of yarn processing and inventory management. It facilitates tracking of empty and loaded beams, yarn inward and outward movements, cone rewinding, and generates comprehensive reports on purchases, deliveries, and production activities. With user-friendly interfaces, robust security measures, and potential for integration with other systems, it streamlines operations and enhances productivity in textile manufacturing processes.",
+      "image": "assets/img/portfolio/towel-dashboard.png",
+      "slider": [
+        "assets/img/portfolio/towel-dashboard.png",
+        "assets/img/portfolio/towel-login.png",
+        "assets/img/portfolio/towel-po.png",
+        "assets/img/portfolio/towel-report.png",
+        "assets/img/portfolio/towel-rewind.png",
+        "assets/img/portfolio/towel-wastage.png"
       ]
   },
   // ,
