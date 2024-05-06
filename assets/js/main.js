@@ -25,7 +25,7 @@ var projectData = [
       ]
   },
   {
-      "title": "HR managment System",
+      "title": "HRMS (HR Management System)",
       "link": "#",
       "category": ["software","Software Development"],
       "tech": "HTML, CSS, JS, Laravel, and PHP",
@@ -191,7 +191,7 @@ var projectData = [
       ]
   },
   {
-      "title": "Towel managment System",
+      "title": "Towel Management System",
       "link": "#",
       "category": ["software","Software Development"],
       "tech": "HTML, CSS, JS, and PHP",
