@@ -51,8 +51,6 @@ var projectData = [
           "assets/img/portfolio/atlantis-home.png",
           "assets/img/portfolio/atlantis-shape.png",
           "assets/img/portfolio/atlantis-form1.png",
-          "assets/img/portfolio/atlantis-form1.png",
-          "assets/img/portfolio/atlantis-admin.png",
           "assets/img/portfolio/atlantis-form2.png"
       ]
   },
@@ -88,7 +86,7 @@ var projectData = [
           "assets/img/portfolio/wtjsf-admin-event.png",
           "assets/img/portfolio/wtjsf-event1.png",
           "assets/img/portfolio/wtjsf-event2.png",
-          "assets/img/portfolio/wtjsf-event3.png",
+          "assets/img/portfolio/wtjsf-event-3.png",
           "assets/img/portfolio/wtjsf-contact.png",
       ]
   },
@@ -123,7 +121,7 @@ var projectData = [
           "assets/img/portfolio/frimix-contact.png",
           "assets/img/portfolio/frimix-with-login.png",
           "assets/img/portfolio/frimix-youtube-and-about.png",
-          "assets/img/portfolio/frimix-upcomming.png"
+          "assets/img/portfolio/frimix-upcomming-event.png"
       ]
   },
   {
@@ -131,13 +129,13 @@ var projectData = [
       "link": "https://stage266.yourdesigndemo.net/",
       "category": ["web","Web Development"],
       "tech": "HTML, CSS, JS, and Laravel",
-      "description": "'Christian Creations Unlimited' is an e-commerce site offering Christian-themed jewelry. Using HTML, CSS, JavaScript, and Laravel, it delivers a seamless shopping experience. Laravel manages user roles (consultant, member, administrator) and backend tasks like authentication and order processing. Stripe integration ensures secure payments.",
+      "description": "Christian Creations Unlimited is an e-commerce site offering Christian-themed jewelry. Using HTML, CSS, JavaScript, and Laravel, it delivers a seamless shopping experience. Laravel manages user roles (consultant, member, administrator) and backend tasks like authentication and order processing. Stripe integration ensures secure payments.",
       "image": "assets/img/portfolio/christan-ecom-home.png",
       "slider": [
           "assets/img/portfolio/ch.png",
           "assets/img/portfolio/christan-ecom-home.png",
           "assets/img/portfolio/christan-ecom-product-page.png",
-          "assets/img/portfolio/christan-ecom-feature.png",
+          "assets/img/portfolio/christan-ecom-fearture.png",
           "assets/img/portfolio/christan-admin-product.png",
           "assets/img/portfolio/christan-login.png",
           "assets/img/portfolio/christan-ecom-kits.png",
