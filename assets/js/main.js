@@ -56,8 +56,8 @@ var projectData = [
   },
   {
       "title": "Brewery Recording Studio",
-      // "link": "https://breweryrecording.com/",
-      "link": "https://stage449.yourdesigndemo.net/",
+      "link": "https://breweryrecording.com/",
+      // "link": "https://stage449.yourdesigndemo.net/",
       "category": ["web","Web Development"],
       "tech": "React ,HTML, CSS, JS, and Laravel",
       "description": "Brewery Recording Studio is a technology-driven portfolio website built using React, HTML, CSS, and JavaScript (JS) on the frontend, with Laravel powering the backend. It features a user-friendly interface showcasing the studio's services, equipment, projects, and client testimonials. The website integrates seamlessly with Laravel's API for booking recording sessions directly through the site. An admin panel enables easy management of bookings, content updates, and analytics. With responsive design and interactive elements, Brewery Recording Studio offers a dynamic and engaging experience for both clients and administrators.",
@@ -243,7 +243,7 @@ var projectData = [
       position: "Unknown"
     }
   ];
-  
+   
 
 
 
@@ -252,16 +252,16 @@ var projectData = [
     { "skill": "PHP", "percentage": "90%" },
     { "skill": "Laravel", "percentage": "90%" },
     { "skill": "JavaScript", "percentage": "90%" },
-    { "skill": "CSS", "percentage": "70%" },
+    { "skill": "CSS", "percentage": "80%" },
+    { "skill": "Linux", "percentage": "90%" },
+    { "skill": "MySQL/MS SQL", "percentage": "70%" },
     { "skill": "React JS & Vue JS", "percentage": "60%" },
+    { "skill": "Python", "percentage": "60%" },
     { "skill": "WordPress/CMS", "percentage": "60%" },
     { "skill": "React Native", "percentage": "50%" },
-    { "skill": "Django", "percentage": "50%" },
-    { "skill": "ASP.net", "percentage": "40%" },
-    { "skill": "Python", "percentage": "40%" },
-    { "skill": "Java", "percentage": "40%" },
+    { "skill": "Django/FastApi", "percentage": "70%" },
     { "skill": "Swift", "percentage": "30%" },
-    { "skill": "Express JS", "percentage": "30%" }
+    { "skill": "Express JS", "percentage": "40%" }
   ];
   document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -617,14 +617,14 @@ function appendTestimonials(testimonials) {
   
   }
 var typed = new Typed(".typing", {
-  strings: ["Full Stack Developer","Backend Specialist","Software Engineer", "Website Developer", "Coder"],
+  strings: ["Full Stack Developer","Lamp Stack Developer","Backend Specialist","Software Engineer","Programmer"],
   typeSpeed: 100,
   backSpeed: 60,
   loop: true
 });
 
 var typed = new Typed(".heading-change", {
-  strings: ["Full Stack Developer","Backend Specialist","Software Engineer", "Website Developer", "Coder"],
+  strings: ["Full Stack Developer","Lamp Stack Developer","Backend Specialist","Software Engineer","Programmer"],
   typeSpeed: 120,
   backSpeed: 100,
   loop: true
