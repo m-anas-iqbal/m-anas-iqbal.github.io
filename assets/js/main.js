@@ -4,6 +4,41 @@
 // project data in JSON format
 var projectData = [
   {
+      "title": "Entrepreneur Insider",
+      "link": "https://stage.entrepreneurinsider.co/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, and Laravel",
+      "description": "Insider community is not just a place to meet potential founders, reaching journalists and investors; it’s a dynamic ecosystem designed to offer tangible benefits. As a member, you’ll gain access to exclusive mentoring sessions with industry leaders, insights from successful startups, and a treasure trove of credits worth $700k from our esteemed partners. These credits translate into significant savings and valuable resources that can make a real difference in your startup’s journey!",
+      "image": "assets/img/portfolio/insider-home.png",
+      "slider": [
+        "assets/img/portfolio/insider-home.png",
+        "assets/img/portfolio/insider-home2.png",
+        "assets/img/portfolio/insider-blog.png",
+          "assets/img/portfolio/insider-qn.png",
+        "assets/img/portfolio/insider-questioniar.png",
+        "assets/img/portfolio/insider-footer.png",
+          "assets/img/portfolio/insider-admin.png",
+          "assets/img/portfolio/insider-blog-insert.png",
+      ]
+  },
+  {
+      "title": "Rango Cart",
+      "link": "https://rangocart.com/",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, and Laravel",
+      "description": "RANGO CART is an innovative educational toy store dedicated to offering high-quality, eco-friendly toys that are affordable for everyone. Our mission is driven by the belief that every child deserves the opportunity to learn and have fun. Our product range is designed to make children smarter by focusing on STEM learning, mathematical and English language skills, creativity, logical thinking, brain development, and cognitive understanding!",
+      "image": "assets/img/portfolio/rango-home.png",
+      "slider": [
+        "assets/img/portfolio/rango-home.png",
+        "assets/img/portfolio/rango-home2.png",
+        "assets/img/portfolio/rango-cart.png",
+          "assets/img/portfolio/rango-product-detail.png",
+          "assets/img/portfolio/rango-admin.png",
+          "assets/img/portfolio/rango-admin-dash.png",
+          "assets/img/portfolio/rango-admin-order.png",
+      ]
+  },
+  {
       "title": "Manage Your School - (MYS)",
       "link": "#",
       "category": ["web","Web Development"],
@@ -226,13 +261,13 @@ var projectData = [
     },
     {
       quote: "Anas is amazing. He was really patient and professional to get me through the whole process. Highly recommended.",
-      image: "https://media.licdn.com/dms/image/D5635AQEOqpoQjCmioA/profile-framedphoto-shrink_200_200/0/1696409840941?e=1711998000&v=beta&t=4O9pNkRIQrWz4FP31jZQbSjbKVpty01Ekfg9t4FOmTQ",
+      image: "assets/img/testimonials/avatar.jpg",
       name: "Tahir Qureshi",
       position: "Founder - softwebpk.com"
     },
     {
       quote: "It was a pleasure working with Anas Iqbal. I had a short deadline and platform limitations that prevented me from finalising content management on the website the way I wanted. He was incredibly dedicated to fix this and tweak it to be exactly how I imagined it on desktop as well as mobile devices. I could not recommend him enough and I will 100% continue working with him. Whoever is looking at this feedback should too.",
-      image: "https://media.licdn.com/dms/image/D4D03AQFkVm81vRvWLQ/profile-displayphoto-shrink_100_100/0/1697538142011?e=1714608000&v=beta&t=b07bKX8-oLbRIkRIFjvOaol_fpLd-VFEhokDF5iq2ck",
+      image: "assets/img/testimonials/avatar.jpg",
       name: "Saba Yasmeen",
       position: "Software Engineer"
     },
