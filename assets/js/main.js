@@ -4,6 +4,24 @@
 // project data in JSON format
 var projectData = [
   {
+      "title": "Work Around",
+      "link": "#",
+      "category": ["web","Web Development"],
+      "tech": "HTML, CSS, JS, and Laravel",
+      "description": "",
+      "image": "assets/img/portfolio/insider-home.png",
+      "slider": [
+        "assets/img/portfolio/insider-home.png",
+        "assets/img/portfolio/insider-home2.png",
+        "assets/img/portfolio/insider-blog.png",
+          "assets/img/portfolio/insider-qn.png",
+        "assets/img/portfolio/insider-questioniar.png",
+        "assets/img/portfolio/insider-footer.png",
+          "assets/img/portfolio/insider-admin.png",
+          "assets/img/portfolio/insider-blog-insert.png",
+      ]
+  },
+  {
       "title": "Entrepreneur Insider",
       "link": "https://stage.entrepreneurinsider.co/",
       "category": ["web","Web Development"],
