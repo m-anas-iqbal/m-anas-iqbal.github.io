@@ -183,10 +183,10 @@ const projectData = [
     slider: [
       "assets/img/portfolio/8stores-home.png",
       "assets/img/portfolio/8stores-login.png",
-      "assets/img/portfolio/8stores-product-detail.png",
+      "assets/img/portfolio/8store-product-detail.png",
       "assets/img/portfolio/8stores-product.png",
       "assets/img/portfolio/8stores-dashboard.png",
-      "assets/img/portfolio/8stores-announc.png",
+      "assets/img/portfolio/8store-announc.png",
       "assets/img/portfolio/8stores-emailtamplate.png"
     ]
   },
@@ -194,23 +194,24 @@ const projectData = [
     title: "RMS - Multi restaurant system",
     category: ["web", "Web & SaaS"],
     tech: "Laravel, PHP, MySQL,  E-commerce",
-    shortDesc: "RMS is a multi restaurant system that allows users to order food from different restaurants.",
-    description: "RMS is a multi restaurant system that allows users to order food from different restaurants. and manage pos and qr order no need of waiter with deatil feedback management system. Customer can order food from different restaurants. Customer can order food from different restaurants. Customer can order food from different restaurants. Customer can order food from different restaurants. Customer can order food from different restaurants. Customer can order food from different restaurants.",
+    shortDesc: "RMS is a multi-restaurant system that allows users to order food from different restaurants.",
+    description: "RMS is a multi-restaurant management platform that allows users to explore menus and order food from different restaurants. Features POS management, QR-based tabletop ordering without waitstaff, kitchen display, and detailed customer feedback management.",
     image: "assets/img/portfolio/rms-home-dark.png",
     link: "https://github.com/m-anas-iqbal",
     slider: [
       "assets/img/portfolio/rms-home-dark.png",
-      "assets/img/portfolio/rms-loginlight.png",
+      "assets/img/portfolio/rms-homelight.png",
       "assets/img/portfolio/rms-login.png",
-      "assets/img/portfolio/rms-admin-menu.png",
-      "assets/img/portfolio/rms-admin-nav.png",
-      "assets/img/portfolio/rms-admin-restru.png"
+      "assets/img/portfolio/rms-menu.png",
+      "assets/img/portfolio/rms-nav.png",
+      "assets/img/portfolio/rms-restru.png"
     ]
   },
   {
     title: "Towel Management System",
     category: ["enterprise", "Enterprise"],
     tech: "PHP, MySQL, CSS, JS",
+    shortDesc: "ERP & inventory platform for textile mills tracking yarn movements, beam processing, and production wastage.",
     description: "The Towel Management System is custom software designed for textile mills to efficiently manage various aspects of yarn processing and inventory management. It facilitates tracking of empty and loaded beams, yarn inward and outward movements, cone rewinding, and generates comprehensive reports on purchases, deliveries, and production activities. With user-friendly interfaces, robust security measures, and potential for integration with other systems, it streamlines operations and enhances productivity in textile manufacturing processes.",
     image: "assets/img/portfolio/towel-dashboard.png",
     link: "#",
@@ -228,6 +229,7 @@ const projectData = [
     link: "https://wtjsf.org/login",
     category: ["web", "Web & SaaS"],
     tech: "WordPress, HTML, CSS, JS, PHP, MySQL, PayPal",
+    shortDesc: "Non-profit international portal featuring member registration, CodeIgniter ticketing backend, and PayPal payments.",
     description: "WTSF (World Taiji Science Federation) is a US Federal proof non-profit Organization with a WordPress frontend and CodeIgniter backend. Users can register on the site to access CodeIgniter-powered features, including event ticketing. An administrator panel allows for user management, event creation, and content updates. The site integrates HTML, CSS, and JS for a seamless and interactive user experience. Additionally, payment integration with PayPal facilitates secure and convenient transactions for event tickets.",
     image: "assets/img/portfolio/wtjsf-login.png",
     slider: [
@@ -364,6 +366,12 @@ const projectData = [
 
 const testimonialsData = [
   {
+    quote: "Anas is an exceptionally talented individual with a strong work ethic. He is adaptable, self-motivated, and always eager to learn. He quickly grasps complex concepts and executes tasks with precision and creativity. His positive attitude and problem-solving skills make him a valuable asset to any team.",
+    image: "assets/img/testimonials/avatar.jpg",
+    name: "Abdullah",
+    position: "CEO, Dadatextile"
+  },
+  {
     quote: "His services command a premium price, yet the impeccable quality of his work, expert architectural guidance, and dedication speak volumes about his worth. Anas delivered beyond expectations.",
     image: "assets/img/testimonials/avatar.jpg",
     name: "Abdul Malik",
@@ -396,6 +404,7 @@ const testimonialsData = [
 ];
 
 let globalThreeGroup = null;
+let globalThreeCamera = null;
 
 /*--------------------------------------------------------------
 # 1. LENIS SMOOTH MOMENTUM SCROLLING
@@ -437,6 +446,7 @@ function initThreeScene() {
     1000
   );
   camera.position.z = 7;
+  globalThreeCamera = camera;
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
@@ -447,10 +457,24 @@ function initThreeScene() {
   scene.add(worldGroup);
   globalThreeGroup = worldGroup;
 
-  // 1. Central Cyber Torus Knot (Electric Indigo)
+  // Dynamically extract colors from the active :root theme palette
+  const rootStyles = getComputedStyle(document.documentElement);
+  const primaryHex = rootStyles.getPropertyValue('--primary').trim() || '#0d9488';
+  const accentHex = rootStyles.getPropertyValue('--accent-coral').trim() || '#d97706';
+  const cyanHex = rootStyles.getPropertyValue('--accent-cyan').trim() || primaryHex;
+  const amberHex = rootStyles.getPropertyValue('--accent-amber').trim() || accentHex;
+  const purpleHex = rootStyles.getPropertyValue('--accent-purple').trim() || primaryHex;
+
+  const colorPrimary = new THREE.Color(primaryHex);
+  const colorAccent = new THREE.Color(accentHex);
+  const colorCyan = new THREE.Color(cyanHex);
+  const colorAmber = new THREE.Color(amberHex);
+  const colorPurple = new THREE.Color(purpleHex);
+
+  // 1. Central Cyber Torus Knot (Uses Active Theme Primary Color)
   const knotGeo = new THREE.TorusKnotGeometry(2.1, 0.52, 140, 24);
   const knotMat = new THREE.MeshStandardMaterial({
-    color: 0x6366f1,
+    color: colorPrimary,
     wireframe: true,
     transparent: true,
     opacity: 0.38,
@@ -460,10 +484,10 @@ function initThreeScene() {
   const knotMesh = new THREE.Mesh(knotGeo, knotMat);
   worldGroup.add(knotMesh);
 
-  // 2. Inner Glowing Core (Iridescent Cyan)
+  // 2. Inner Glowing Core (Uses Active Theme Accent Color)
   const coreGeo = new THREE.IcosahedronGeometry(1.25, 1);
   const coreMat = new THREE.MeshBasicMaterial({
-    color: 0x06b6d4,
+    color: colorAccent,
     wireframe: true,
     transparent: true,
     opacity: 0.5
@@ -474,7 +498,7 @@ function initThreeScene() {
   // 3. Dual Cyber Gyroscope Orbital Rings (Futuristic Tech Accent)
   const ring1Geo = new THREE.TorusGeometry(3.1, 0.03, 16, 100);
   const ring1Mat = new THREE.MeshBasicMaterial({
-    color: 0x06b6d4,
+    color: colorPrimary,
     transparent: true,
     opacity: 0.45
   });
@@ -484,7 +508,7 @@ function initThreeScene() {
 
   const ring2Geo = new THREE.TorusGeometry(3.55, 0.025, 16, 100);
   const ring2Mat = new THREE.MeshBasicMaterial({
-    color: 0x8b5cf6,
+    color: colorAccent,
     transparent: true,
     opacity: 0.38
   });
@@ -499,11 +523,11 @@ function initThreeScene() {
   const colors = new Float32Array(particleCount * 3);
 
   const palette = [
-    new THREE.Color(0x6366f1),
-    new THREE.Color(0x06b6d4),
-    new THREE.Color(0xf43f5e),
-    new THREE.Color(0xf59e0b),
-    new THREE.Color(0x10b981)
+    colorPrimary,
+    colorAccent,
+    colorCyan,
+    colorAmber,
+    colorPurple
   ];
 
   for (let i = 0; i < particleCount * 3; i += 3) {
@@ -538,13 +562,13 @@ function initThreeScene() {
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
   scene.add(ambientLight);
 
-  const lightIndigo = new THREE.PointLight(0x6366f1, 2.8, 50);
-  lightIndigo.position.set(5, 5, 5);
-  scene.add(lightIndigo);
+  const lightPrimary = new THREE.PointLight(colorPrimary, 2.8, 50);
+  lightPrimary.position.set(5, 5, 5);
+  scene.add(lightPrimary);
 
-  const lightCyan = new THREE.PointLight(0x06b6d4, 2.5, 50);
-  lightCyan.position.set(-5, -5, 5);
-  scene.add(lightCyan);
+  const lightAccent = new THREE.PointLight(colorAccent, 2.5, 50);
+  lightAccent.position.set(-5, -5, 5);
+  scene.add(lightAccent);
 
   // Responsive Mouse Parallax
   let mouseX = 0;
@@ -602,13 +626,13 @@ function initThreeScene() {
     knotMesh.scale.set(pulse, pulse, pulse);
 
     // Dynamic light orbits
-    lightIndigo.position.x = Math.sin(elapsedTime * 0.65) * 5.5;
-    lightIndigo.position.y = Math.cos(elapsedTime * 0.65) * 5.5;
-    lightIndigo.position.z = Math.sin(elapsedTime * 0.45) * 4;
+    lightPrimary.position.x = Math.sin(elapsedTime * 0.65) * 5.5;
+    lightPrimary.position.y = Math.cos(elapsedTime * 0.65) * 5.5;
+    lightPrimary.position.z = Math.sin(elapsedTime * 0.45) * 4;
 
-    lightCyan.position.x = -Math.sin(elapsedTime * 0.65) * 5.5;
-    lightCyan.position.y = -Math.cos(elapsedTime * 0.65) * 5.5;
-    lightCyan.position.z = -Math.sin(elapsedTime * 0.45) * 4;
+    lightAccent.position.x = -Math.sin(elapsedTime * 0.65) * 5.5;
+    lightAccent.position.y = -Math.cos(elapsedTime * 0.65) * 5.5;
+    lightAccent.position.z = -Math.sin(elapsedTime * 0.45) * 4;
 
     renderer.render(scene, camera);
   }
@@ -622,14 +646,15 @@ function initThreeScene() {
 function initGsapScrollAnimations() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-  // 1. Three.js 3D Model multi-axis scrub with page scroll (Grows on scroll down, shrinks on scroll up)
+  // 1. Three.js 3D Model Dynamic Zoom & Rotation (Zoom IN on scroll down, Zoom OUT on scroll up)
   if (globalThreeGroup) {
     globalThreeGroup.scale.set(1, 1, 1);
+    globalThreeGroup.position.set(window.innerWidth < 768 ? 0.3 : 1.5, 0, 0);
 
-    // Multi-axis rotation with page scroll
+    // Multi-axis continuous rotation with page scroll
     gsap.to(globalThreeGroup.rotation, {
-      y: Math.PI * 4,
-      x: Math.PI * 1.2,
+      y: Math.PI * 5,
+      x: Math.PI * 1.4,
       ease: "none",
       scrollTrigger: {
         trigger: "body",
@@ -639,45 +664,48 @@ function initGsapScrollAnimations() {
       }
     });
 
-    // Gradual scale up on scroll down, shrinks back to initial on scroll up
+    // Zoom IN on scroll down (Scales up dramatically), Zooms OUT on scroll up
+    const targetScale = window.innerWidth < 768 ? 1.65 : 2.15;
     gsap.to(globalThreeGroup.scale, {
-      x: 1.35,
-      y: 1.35,
-      z: 1.35,
+      x: targetScale,
+      y: targetScale,
+      z: targetScale,
       ease: "none",
       scrollTrigger: {
         trigger: "body",
         start: "top top",
-        end: "#contact top",
+        end: "bottom bottom",
         scrub: 1.2
       }
     });
 
-    // Ambient background positioning (kept on the right side)
+    // Advance 3D model closer toward the screen on scroll down, recedes back on scroll up
     gsap.to(globalThreeGroup.position, {
-      x: window.innerWidth < 768 ? 0.6 : 2.2,
-      y: -0.2,
-      z: -2.5,
+      x: window.innerWidth < 768 ? 0.4 : 1.9,
+      y: -0.3,
+      z: 1.8,
       ease: "none",
       scrollTrigger: {
         trigger: "body",
         start: "top top",
-        end: "#contact top",
-        scrub: 1.5
+        end: "bottom bottom",
+        scrub: 1.2
       }
     });
 
-    // Smoothly fade out 3D canvas when entering Contact section so it never overlaps or covers contact text/cards
-    gsap.to('#three-canvas-container', {
-      opacity: 0,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: '#contact',
-        start: "top 85%",
-        end: "top 35%",
-        scrub: true
-      }
-    });
+    // Camera zooms in closer on scroll down (z: 7 -> z: 4.6), zooms back out on scroll up
+    if (globalThreeCamera) {
+      gsap.to(globalThreeCamera.position, {
+        z: 4.6,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.2
+        }
+      });
+    }
   }
 
   // 2. Top Scroll Progress Bar
@@ -1112,7 +1140,7 @@ window.launchProjectWindow = function (index) {
           <span class="font-mono text-muted" style="font-size: 11px;">SYS.${index + 1}</span>
         </div>
         <h4 class="window-title-text">${item.title}</h4>
-        <p class="window-desc-text">${item.shortDesc}</p>
+        <p class="window-desc-text">${item.shortDesc || item.description || ''}</p>
         <div class="window-tech-row font-mono mb-3">
           ${techChips}
         </div>
@@ -1204,6 +1232,12 @@ window.resetDesktop = function () {
 };
 
 function populateProjectLaunchers() {
+  // Dynamically sync project count badges & buttons
+  const totalCount = projectData.length;
+  document.querySelectorAll('.project-count-val').forEach(el => {
+    el.textContent = totalCount;
+  });
+
   const container = document.getElementById('projectLaunchersContainer');
   if (!container) return;
 
