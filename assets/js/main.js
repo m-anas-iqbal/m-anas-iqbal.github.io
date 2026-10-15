@@ -1671,6 +1671,7 @@ document.addEventListener('DOMContentLoaded', () => {
         strings: [
           "Senior Software Engineer",
           "Full Stack Architect",
+          "Business Solutions Architect",
           "Enterprise ERP & POS Specialist",
           "AI & Agentic Systems Engineer"
         ],
