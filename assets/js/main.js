@@ -1,684 +1,1698 @@
-/*--------------------------------------------------------------
-# General DATA
---------------------------------------------------------------*/
-// project data in JSON format
-var projectData = [
+// Register GSAP plugins safely
+if (typeof gsap !== 'undefined') {
+  if (typeof ScrollTrigger !== 'undefined') gsap.registerPlugin(ScrollTrigger);
+  if (typeof Draggable !== 'undefined') gsap.registerPlugin(Draggable);
+}
+
+const projectData = [
   {
-      "title": "Work Around",
-      "link": "#",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, and Laravel",
-      "description": "",
-      "image": "assets/img/portfolio/insider-home.png",
-      "slider": [
-        "assets/img/portfolio/insider-home.png",
-        "assets/img/portfolio/insider-home2.png",
-        "assets/img/portfolio/insider-blog.png",
-          "assets/img/portfolio/insider-qn.png",
-        "assets/img/portfolio/insider-questioniar.png",
-        "assets/img/portfolio/insider-footer.png",
-          "assets/img/portfolio/insider-admin.png",
-          "assets/img/portfolio/insider-blog-insert.png",
-      ]
+    title: "Bill of Materials (BOM) and Manufacturing ERP",
+    category: ["enterprise", "Enterprise"],
+    tech: "Laravel, PHP, MySQL, Multi-Level BOM Engine, Service Layer",
+    shortDesc: "Manufacturing resource planning with hierarchical multi-level Bill of Materials (BOM), production cycles, and scrap tracking.",
+    description: "Engineered comprehensive manufacturing ERP system with multi-level BOM workflows, work order routing across production stages, raw material wastage tracking, batch costing, and automated inventory reconciliation. Features fine-grained role-based access control (RBAC).",
+    image: "assets/img/portfolio/bom-cpo-demand.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/bom-cpo-demand.png",
+      "assets/img/portfolio/bom-demand-cpo.png",
+      "assets/img/portfolio/bom-inventory.png",
+      "assets/img/portfolio/bom-inventory-ledger.png",
+      "assets/img/portfolio/bom-product-add.png",
+      "assets/img/portfolio/bom-product.png",
+      "assets/img/portfolio/bom-login.png",
+      "assets/img/portfolio/bom-cpo-view.png"
+    ]
   },
   {
-      "title": "Entrepreneur Insider",
-      "link": "https://stage.entrepreneurinsider.co/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, and Laravel",
-      "description": "Insider community is not just a place to meet potential founders, reaching journalists and investors; it’s a dynamic ecosystem designed to offer tangible benefits. As a member, you’ll gain access to exclusive mentoring sessions with industry leaders, insights from successful startups, and a treasure trove of credits worth $700k from our esteemed partners. These credits translate into significant savings and valuable resources that can make a real difference in your startup’s journey!",
-      "image": "assets/img/portfolio/insider-home.png",
-      "slider": [
-        "assets/img/portfolio/insider-home.png",
-        "assets/img/portfolio/insider-home2.png",
-        "assets/img/portfolio/insider-blog.png",
-          "assets/img/portfolio/insider-qn.png",
-        "assets/img/portfolio/insider-questioniar.png",
-        "assets/img/portfolio/insider-footer.png",
-          "assets/img/portfolio/insider-admin.png",
-          "assets/img/portfolio/insider-blog-insert.png",
-      ]
+    title: "Multi-Branch Restaurant POS & ERP",
+    category: ["enterprise", "Enterprise"],
+    tech: "Laravel, PHP, MySQL, Repository Pattern, Thermal receipt & sticker printing, TCP/IP printing",
+    shortDesc: "Enterprise multi-branch restaurant platform with split billing, KOT printing, coupons, staff shifts, and branch targets.",
+    description: "Architected and engineered at Doodle N Dash. Features high-speed ESC/POS thermal printing over network TCP/IP for receipts, KOTs, and pantry labels. Implemented complex shift management, coupon workflows, multi-level branch target reporting, and rock-solid repository pattern architecture.",
+    image: "assets/img/portfolio/pos-dashboard.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/pos-dashboard.png",
+      "assets/img/portfolio/pos-orders.png",
+      "assets/img/portfolio/pos-login-l.png",
+      "assets/img/portfolio/pos-login.png",
+      "assets/img/portfolio/pos-live-kitchen.png",
+      "assets/img/portfolio/pos-waiter.png",
+      "assets/img/portfolio/pos-accountant.png",
+      "assets/img/portfolio/pos-floor-map.png"
+    ]
   },
   {
-      "title": "Rango Cart",
-      "link": "https://rangocart.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, and Laravel",
-      "description": "RANGO CART is an innovative educational toy store dedicated to offering high-quality, eco-friendly toys that are affordable for everyone. Our mission is driven by the belief that every child deserves the opportunity to learn and have fun. Our product range is designed to make children smarter by focusing on STEM learning, mathematical and English language skills, creativity, logical thinking, brain development, and cognitive understanding!",
-      "image": "assets/img/portfolio/rango-home.png",
-      "slider": [
-        "assets/img/portfolio/rango-home.png",
-        "assets/img/portfolio/rango-home2.png",
-        "assets/img/portfolio/rango-cart.png",
-          "assets/img/portfolio/rango-product-detail.png",
-          "assets/img/portfolio/rango-admin.png",
-          "assets/img/portfolio/rango-admin-dash.png",
-          "assets/img/portfolio/rango-admin-order.png",
-      ]
+    title: "Enterprise HRMS",
+    category: ["enterprise", "Enterprise"],
+    tech: "Laravel, PHP, Biometric Hardware Sync, MySQL",
+    shortDesc: "Comprehensive HR platform with biometric attendance integration, leave approvals, payroll, and support ticketing.",
+    description: "Enterprise grade HR management solution deployed with physical biometric machine integration. Automates real-time check-in logging, overtime calculations, monthly tax deductions, pay-slip generation, and employee self-service leaves.",
+    image: "assets/img/portfolio/hrms-menu.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/hrms-menu.png",
+      "assets/img/portfolio/hrms-admin-page.png",
+      "assets/img/portfolio/hrms-employee.png",
+      "assets/img/portfolio/hrms-checkin.png",
+      "assets/img/portfolio/hrms-report.png"
+    ]
   },
   {
-      "title": "Manage Your School - (MYS)",
-      "link": "#",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, and Laravel",
-      "description": "Introducing our latest innovation: a comprehensive School Management System designed to revolutionize the education sector! With seamless online admission capabilities and interactive panels for parents and students, administrative tasks are simplified, admissions are streamlined, and communication between school stakeholders is greatly enhanced. Embrace efficiency and bid farewell to paperwork with our cutting-edge solution!",
-      "image": "assets/img/portfolio/mys-home.png",
-      "slider": [
-        "assets/img/portfolio/mys-home.png",
-        "assets/img/portfolio/mys-about.png",
-        "assets/img/portfolio/mys-contact.png",
-          "assets/img/portfolio/mys-school-registration.png",
-          "assets/img/portfolio/mys-school-home.png",
-          "assets/img/portfolio/mys-school-adminission.png",
-        "assets/img/portfolio/mys-profile-update.png",
-          "assets/img/portfolio/mys-school-fees-type.png",
-          "assets/img/portfolio/mys-school-student.png",
-          "assets/img/portfolio/mys-school-edit-webhome.png",
-          "assets/img/portfolio/mys-school-admission-list.png",
-      ]
+    title: "Entrepreneur Insider SaaS",
+    category: ["web", "Web & SaaS"],
+    tech: "Laravel, React.js, MySQL, Bootstrap, REST APIs",
+    shortDesc: "Global startup networking and investor ecosystem platform connecting founders, angels, and mentors.",
+    description: "Insider community is a dynamic SaaS platform designed to offer founders access to exclusive mentoring, startup insights, and partner perks worth over $700k. Features custom questionnaire builders, blog publication engines, and interactive founder forums.",
+    image: "assets/img/portfolio/insider-home.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/insider-home.png",
+      "assets/img/portfolio/insider-home2.png",
+      "assets/img/portfolio/insider-blog.png",
+      "assets/img/portfolio/insider-qn.png",
+      "assets/img/portfolio/insider-questioniar.png",
+      "assets/img/portfolio/insider-admin.png"
+    ]
   },
   {
-      "title": "HRMS (HR Management System)",
-      "link": "#",
-      "category": ["software","Software Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "The HR Management System is an internal web application developed in Laravel, PHP, HTML, CSS, and JavaScript. It offers comprehensive functionality including employee management, attendance tracking, leave management, payroll processing, support ticket system, and more. Designed to streamline HR processes, it provides a centralized platform for efficient management of HR-related tasks and data within the organization.",
-      "image": "assets/img/portfolio/hrms-admin-page.png",
-      "slider": [
-          "assets/img/portfolio/hrms-admin-page.png",
-          "assets/img/portfolio/hrms-employee.png",
-          "assets/img/portfolio/hrms-checkin.png",
-          "assets/img/portfolio/hrms-menu.png",
-          "assets/img/portfolio/hrms-login.png",
-          "assets/img/portfolio/hrms-report.png"
-      ]
+    title: "Pakistan Space Activities Regulatory Board (PSARB)",
+    category: ["enterprise", "Enterprise"],
+    tech: "Laravel, PHP 8+, Portfolio + Dashboard + CRM, MySQL",
+    shortDesc: "Pakistan Space Activities Regulatory Board(PSARB) is a public sector administrative board platform for regulatory filings, appeal hearings, legal dockets, and committee approvals.",
+    description: "Enterprise digital governance portal engineered for Pakistan Space Activities Regulatory Board(PSARB). Automates judicial appeal submissions, document verification, multi-stage committee review workflows, audit trails, and role-segregated portals for board members, legal counsels, and public applicants.",
+    image: "assets/img/portfolio/psarb-website.png",
+    link: "https://psarb.gov.pk/",
+    slider: [
+      "assets/img/portfolio/psarb-website.png",
+      "assets/img/portfolio/psarb-login.png",
+      "assets/img/portfolio/psarb-form-view.png",
+      "assets/img/portfolio/psarb-invoice.png"
+    ]
   },
   {
-      "title": "Atlantis",
-      "link": "https://stage446.yourdesigndemo.net/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Atlantis is interconnected with an administrative interface, allowing administrators to seamlessly add and oversee plans and orders. Currently in the developmental phase, the site's primary objective is to facilitate the creation and management of spa covers.",
-      "image": "assets/img/portfolio/atlantis-home.png",
-      "slider": [
-          "assets/img/portfolio/atlantis-home.png",
-          "assets/img/portfolio/atlantis-shape.png",
-          "assets/img/portfolio/atlantis-form1.png",
-          "assets/img/portfolio/atlantis-form2.png"
-      ]
+    title: "Property Management & Tenancy System",
+    category: ["enterprise", "Enterprise"],
+    tech: "FastAPI, React.js, Postgres, Portfolio + Dashboard+ CRM, JWT, Stripe & MyFatoorah",
+    shortDesc: "End-to-end real estate and property operations portal with tenant onboarding, rent automation, and maintenance ticketing.",
+    description: "Comprehensive property management platform for residential and commercial assets. Features unit occupancy tracking, digital lease agreements, automated recurring rent invoicing with Stripe, maintenance dispatch, landlord payout ledgers, and tenant self-service portals.",
+    image: "assets/img/portfolio/property-dashboard.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/property-dashboard.png",
+      "assets/img/portfolio/property-login.png",
+      "assets/img/portfolio/property-managemenet.png",
+      "assets/img/portfolio/property-unit-management.png"
+    ]
   },
   {
-      "title": "Brewery Recording Studio",
-      "link": "https://breweryrecording.com/",
-      // "link": "https://stage449.yourdesigndemo.net/",
-      "category": ["web","Web Development"],
-      "tech": "React ,HTML, CSS, JS, and Laravel",
-      "description": "Brewery Recording Studio is a technology-driven portfolio website built using React, HTML, CSS, and JavaScript (JS) on the frontend, with Laravel powering the backend. It features a user-friendly interface showcasing the studio's services, equipment, projects, and client testimonials. The website integrates seamlessly with Laravel's API for booking recording sessions directly through the site. An admin panel enables easy management of bookings, content updates, and analytics. With responsive design and interactive elements, Brewery Recording Studio offers a dynamic and engaging experience for both clients and administrators.",
-      "image": "assets/img/portfolio/brewery-home.png",
-      "slider": [
-          "assets/img/portfolio/brewery-home.png",
-          "assets/img/portfolio/brewery-admin.png",
-          "assets/img/portfolio/brewery-studio.png",
-          "assets/img/portfolio/brewery-serice.png",
-          "assets/img/portfolio/brewery-staff.png",
-          "assets/img/portfolio/brewery-booking.png",
-      ]
+    title: "Prefex CRM",
+    category: ["enterprise", "Enterprise"],
+    tech: "CodeIgniter, PHP, MySQL, Dashboard + CRM",
+    shortDesc: "Perfex CRM - Customers Relationship & Project Management.",
+    description: "Comprehensive customer relationship management (CRM) platform designed to streamline business operations, enhance customer engagement, and drive sales growth. With its intuitive interface and powerful features, Prefex empowers businesses to manage leads, track interactions, automate tasks, and gain valuable insights through advanced analytics and reporting.",
+    image: "assets/img/portfolio/prefex.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/prefex.png",
+      "assets/img/portfolio/prefex-crm.png",
+      "assets/img/portfolio/prefex-lead-report.png",
+      "assets/img/portfolio/prefex-leads.png",
+      "assets/img/portfolio/prefex-crm-ticket.png",
+      "assets/img/portfolio/prefex-task.png"
+    ]
   },
   {
-      "title": "WTSF",
-      "link": "https://wtjsf.org/login",
-      "category": ["web","Web Development"],
-      "tech": "Wordpress, HTML, CSS, JS, and Codeigniter",
-      "description": "WTSF (We The Strong Foundation) is a US Federal proof non-profit Organization with a WordPress frontend and CodeIgniter backend. Users can register on the site to access CodeIgniter-powered features, including event ticketing. An administrator panel allows for user management, event creation, and content updates. The site integrates HTML, CSS, and JS for a seamless and interactive user experience. Additionally, payment integration with PayPal facilitates secure and convenient transactions for event tickets.",
-      "image": "assets/img/portfolio/wtjsf-login.png",
-      "slider": [
-        "assets/img/portfolio/wtjsf-home-word.png",
-        "assets/img/portfolio/w.png",
-        "assets/img/portfolio/wtjsf-login.png",
-          "assets/img/portfolio/wtjsf-admin-page.png",
-          "assets/img/portfolio/wtjsf-admin-event.png",
-          "assets/img/portfolio/wtjsf-event1.png",
-          "assets/img/portfolio/wtjsf-event2.png",
-          "assets/img/portfolio/wtjsf-event-3.png",
-          "assets/img/portfolio/wtjsf-contact.png",
-      ]
+    title: "WhatsApp Chatbot & Agent Portal",
+    category: ["mobile-ai", "AI & Automation"],
+    tech: "WhatsApp API, PHP, Node.js, NLP Search, MySQL",
+    shortDesc: "Smart multi-layered automated conversational FAQ bot with keyword search and live human agent escalation.",
+    description: "Built for KODEV Global. Seamlessly connects users to automated conversational flows on WhatsApp. Includes intelligent NLP keyword searching, automated answer dispatch, and seamless escalation to human customer support agents through an internal agent portal.",
+    image: "assets/img/portfolio/chatbot-login.png",
+    link: "https://github.com/m-anas-iqbal",
+    slider: [
+      "assets/img/portfolio/chatbot-login.png",
+      "assets/img/portfolio/chatbot.png",
+      "assets/img/portfolio/chatbot-question_add.png",
+      "assets/img/portfolio/chatbot-question_word.png",
+      "assets/img/portfolio/chatbot-report.png"
+    ]
+  }, {
+    title: "Work Around",
+    category: ["enterprise", "Enterprise"],
+    tech: "PHP, MySQL, Laravel, API, REST APIs, WebSocket, React.js, JWT, Unity 3D",
+    shortDesc: "AR-enhanced virtual marker inspection platform for oil-sector field technicians.",
+    description: "An immersive AR-enhanced virtual marker inspection platform designed for oil-sector field technicians. The system overlay’s precise 3D virtual markers onto physical equipment, enabling technicians to instantly identify exact component locations, collaborate remotely via integrated chat/video, and share real-time spatial annotations. It supports role-based access for field agents, supervisors, and inspectors with complete audit trails of inspections and maintenance actions.",
+    link: "#",
+    image: "assets/img/portfolio/workaround-cgroup.png",
+    slider: [
+      "assets/img/portfolio/workaround-cgroup.png",
+      "assets/img/portfolio/workaround-group-add-invites.png",
+      "assets/img/portfolio/workaround-group-add-members.png",
+      "assets/img/portfolio/workaround-group.png",
+      "assets/img/portfolio/workaround-lgroup.png",
+      "assets/img/portfolio/workaround-profile.png",
+      "assets/img/portfolio/workaround.png",
+    ]
   },
   {
-      "title": "NP Car rentals llc",
-      "link": "#",
-      "category": ["web","Web Development"],
-      "tech": "React, HTML, CSS, JS, and Laravel",
-      "description": "NP Car Rentals LLC is a premier Dubai-based car rental service offering seamless vehicle rentals through a sophisticated tech stack comprising React and Laravel. With an integrated payment method powered by Stripe, customers can effortlessly book their desired vehicles online, ensuring a hassle-free rental experience. Whether it's for business or leisure, NP Car Rentals LLC provides top-notch service, reliability, and convenience, making it the preferred choice for individuals and businesses seeking quality transportation solutions in Dubai.",
-      "image": "assets/img/portfolio/rental_car-home.png",
-      "slider": [
-          "assets/img/portfolio/rental_car-home.png",
-          "assets/img/portfolio/rental_car-filter.png",
-          "assets/img/portfolio/rental_car-detail.png",
-          "assets/img/portfolio/rental_car-detail2.png",
-          "assets/img/portfolio/rental_car-checkout.png",
-          "assets/img/portfolio/rental_car-payment.png",
-          "assets/img/portfolio/rental_car-admin.png",
-          "assets/img/portfolio/rental_car-admin-user.png",
-          "assets/img/portfolio/rental_car-admin-payment.png",
-      ]
+    title: "Lelobike - Bike E-commerce Platform",
+    category: ["web", "Web & SaaS"],
+    tech: "Laravel, PHP, MySQL, REST APIs, E-commerce",
+    shortDesc: "Dealer-customer interaction and bike e-commerce platform.",
+    description: "Built for Lelobike. Seamlessly connects dealers and customers for bike trading and e-commerce. buying, selling, and trading of bikes.",
+    image: "assets/img/portfolio/lelobike-home.png",
+    link: "https://github.com/m-anas-iqbal",
+    slider: [
+      "assets/img/portfolio/lelobike-home.png",
+      "assets/img/portfolio/lelobike-login.png",
+      "assets/img/portfolio/lelobike-admin-dasboard.png",
+      "assets/img/portfolio/lelobike-admin-ads.png",
+      "assets/img/portfolio/lelobike-admin-package.png"
+    ]
   },
   {
-      "title": "Frimix",
-      "link": "https://frimix.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Frimix is an event booking platform designed to streamline the ticket purchasing process by enabling users to conveniently acquire tickets online. With Frimix, users can seamlessly obtain their tickets without the need for physical copies, as each ticket is associated with a unique digital ticket number. Additionally, Frimix provides an intuitive admin panel that allows administrators to add new tickets, configure ticket details, and efficiently manage ticket orders. Through the admin panel, administrators have full control over ticket settings and can easily oversee and process ticket orders.",
-      "image": "assets/img/portfolio/frimix-with-login.png",
-      "slider": [
-          "assets/img/portfolio/frimix-home-page.png",
-          "assets/img/portfolio/frimix-contact.png",
-          "assets/img/portfolio/frimix-with-login.png",
-          "assets/img/portfolio/frimix-youtube-and-about.png",
-          "assets/img/portfolio/frimix-upcomming-event.png"
-      ]
+    title: "8stores - E-commerce Platform",
+    category: ["web", "Web & SaaS"],
+    tech: "Laravel, PHP, MySQL,  E-commerce",
+    shortDesc: "8stores is an e-commerce platform that allows users to sell products.",
+    description: "8stores is an e-commerce platform that allows users to sell products. you can create your own store and sell products to customers.",
+    image: "assets/img/portfolio/8stores-home.png",
+    link: "https://github.com/m-anas-iqbal",
+    slider: [
+      "assets/img/portfolio/8stores-home.png",
+      "assets/img/portfolio/8stores-login.png",
+      "assets/img/portfolio/8store-product-detail.png",
+      "assets/img/portfolio/8stores-product.png",
+      "assets/img/portfolio/8stores-dashboard.png",
+      "assets/img/portfolio/8store-announc.png",
+      "assets/img/portfolio/8stores-emailtamplate.png"
+    ]
   },
   {
-      "title": "Christan Creations Unlimited",
-      "link": "https://stage266.yourdesigndemo.net/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, and Laravel",
-      "description": "Christian Creations Unlimited is an e-commerce site offering Christian-themed jewelry. Using HTML, CSS, JavaScript, and Laravel, it delivers a seamless shopping experience. Laravel manages user roles (consultant, member, administrator) and backend tasks like authentication and order processing. Stripe integration ensures secure payments.",
-      "image": "assets/img/portfolio/christan-ecom-home.png",
-      "slider": [
-          "assets/img/portfolio/ch.png",
-          "assets/img/portfolio/christan-ecom-home.png",
-          "assets/img/portfolio/christan-ecom-product-page.png",
-          "assets/img/portfolio/christan-ecom-fearture.png",
-          "assets/img/portfolio/christan-admin-product.png",
-          "assets/img/portfolio/christan-login.png",
-          "assets/img/portfolio/christan-ecom-kits.png",
-      ]
+    title: "RMS - Multi restaurant system",
+    category: ["web", "Web & SaaS"],
+    tech: "Laravel, PHP, MySQL,  E-commerce",
+    shortDesc: "RMS is a multi-restaurant system that allows users to order food from different restaurants.",
+    description: "RMS is a multi-restaurant management platform that allows users to explore menus and order food from different restaurants. Features POS management, QR-based tabletop ordering without waitstaff, kitchen display, and detailed customer feedback management.",
+    image: "assets/img/portfolio/rms-home-dark.png",
+    link: "https://github.com/m-anas-iqbal",
+    slider: [
+      "assets/img/portfolio/rms-home-dark.png",
+      "assets/img/portfolio/rms-homelight.png",
+      "assets/img/portfolio/rms-login.png",
+      "assets/img/portfolio/rms-menu.png",
+      "assets/img/portfolio/rms-nav.png",
+      "assets/img/portfolio/rms-restru.png"
+    ]
   },
   {
-      "title": "MapBirdy",
-      "link": "https://mapbirdy.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and Google Map API",
-      "description": "MapBirdy is a dynamic web platform designed for community engagement and collaboration on local issues. Built with Laravel, PHP, JavaScript, HTML, and CSS, it offers an intuitive interface for voting, discussions, and interactive commenting. Administrators can create polls and questions, while users can vote and share opinions on neighborhood topics. With seamless Google Maps API integration, accurate location-based interactions are ensured. MapBirdy empowers users to drive positive change by making their voices heard on community priorities and proposed developments.",
-      "image": "assets/img/portfolio/mapbirdy-login.png",
-      "slider": [
-          "assets/img/portfolio/mapbirdy-user-dashboard.png",
-          "assets/img/portfolio/mapbirdy-vote-comment.png",
-          "assets/img/portfolio/mapbirdy-search.png",
-          "assets/img/portfolio/mapbirdy-map-maker.png",
-          "assets/img/portfolio/mapbirdy-login.png"
-      ]
+    title: "Towel Management System",
+    category: ["enterprise", "Enterprise"],
+    tech: "PHP, MySQL, CSS, JS",
+    shortDesc: "ERP & inventory platform for textile mills tracking yarn movements, beam processing, and production wastage.",
+    description: "The Towel Management System is custom software designed for textile mills to efficiently manage various aspects of yarn processing and inventory management. It facilitates tracking of empty and loaded beams, yarn inward and outward movements, cone rewinding, and generates comprehensive reports on purchases, deliveries, and production activities. With user-friendly interfaces, robust security measures, and potential for integration with other systems, it streamlines operations and enhances productivity in textile manufacturing processes.",
+    image: "assets/img/portfolio/towel-dashboard.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/towel-dashboard.png",
+      "assets/img/portfolio/towel-login.png",
+      "assets/img/portfolio/towel-po.png",
+      "assets/img/portfolio/towel-report.png",
+      "assets/img/portfolio/towel-rewind.png",
+      "assets/img/portfolio/towel-wastage.png"
+    ]
   },
   {
-      "title": "Dukan24h",
-      "link": "https://dukan24h.com/",
-      "category": ["web","Web Development"],
-      "tech": "HTML, CSS, JS, Laravel, and PHP",
-      "description": "Dukan24h is an encompassing e-commerce platform with an integrated shop management system. Catering to a diverse user base, it serves three primary roles: consumers, legal entities, and internal staff. Consumers appreciate its user-friendly interface, while legal entities benefit from its compliance features. The platform also offers robust internal functionalities such as point-of-sale systems and comprehensive reporting tools for sales, purchases, and profit/loss analysis.",
-      "image": "assets/img/portfolio/dukan24h-home.png",
-      "slider": [
-          "assets/img/portfolio/dukan24h-home.png",
-          "assets/img/portfolio/dukan24h-contact.png",
-          "assets/img/portfolio/dukan24h-faq.png",
-          "assets/img/portfolio/dukan24h-search-page.png",
-          "assets/img/portfolio/dukan24h-search.png",
-          "assets/img/portfolio/dukan24h-shop-page.png",
-          "assets/img/portfolio/dukan24h-shop-register.png"
-      ]
+    title: "World Taiji Science Federation (WTSF)",
+    link: "https://wtjsf.org/login",
+    category: ["web", "Web & SaaS"],
+    tech: "WordPress, HTML, CSS, JS, PHP, MySQL, PayPal",
+    shortDesc: "Non-profit international portal featuring member registration, CodeIgniter ticketing backend, and PayPal payments.",
+    description: "WTSF (World Taiji Science Federation) is a US Federal proof non-profit Organization with a WordPress frontend and CodeIgniter backend. Users can register on the site to access CodeIgniter-powered features, including event ticketing. An administrator panel allows for user management, event creation, and content updates. The site integrates HTML, CSS, and JS for a seamless and interactive user experience. Additionally, payment integration with PayPal facilitates secure and convenient transactions for event tickets.",
+    image: "assets/img/portfolio/wtjsf-login.png",
+    slider: [
+      "assets/img/portfolio/wtjsf-home-word.png",
+      "assets/img/portfolio/wtjsf-event.png",
+      "assets/img/portfolio/wtjsf-login.png",
+      "assets/img/portfolio/wtjsf-admin-page.png",
+      "assets/img/portfolio/wtjsf-admin-event.png",
+      "assets/img/portfolio/wtjsf-event1.png",
+      "assets/img/portfolio/wtjsf-event2.png",
+      "assets/img/portfolio/wtjsf-event-3.png",
+      "assets/img/portfolio/wtjsf-contact.png",
+    ]
   },
   {
-      "title": "Chatbot",
-      "link": "#",
-      "category": ["software","Software Development"],
-      "tech": "HTML, CSS, JS, and PHP",
-      "description": "This chatbot is seamlessly integrated with the WhatsApp API, enabling users to interact with it directly through WhatsApp. It boasts a robust question-and-answer system with multiple layers of inquiries, allowing for a dynamic conversational experience. Additionally, users can initiate conversations by searching for keywords within questions. If users prefer to speak with a human agent instead, they can simply request assistance by typing (#), prompting the system to connect them with an available agent via the agent portal. Once an agent accepts the chat request, they can engage in a conversation with the user, addressing their queries and concerns before closing the session. This integrated system ensures efficient and effective communication between users and agents, enhancing overall customer experience.",
-      "image": "assets/img/portfolio/chatbot-login.png",
-      "slider": [
-          "assets/img/portfolio/chatbot-login.png",
-          "assets/img/portfolio/chatbot.png",
-          "assets/img/portfolio/chatbot-question_add.png",
-          "assets/img/portfolio/chatbot-question_word.png",
-          "assets/img/portfolio/chatbot-report.png"
-      ]
+    title: "Brewery Recording Studio",
+    category: ["web", "Web & SaaS"],
+    tech: "React.js, Laravel REST API, HTML5/CSS3, MySQL",
+    shortDesc: "State-of-the-art recording studio booking platform with real-time session scheduling and artist portfolios.",
+    description: "High-performance web app with React.js frontend and Laravel REST API backend. Enables artists and producers to book studio sessions, preview audio equipment specs, meet resident audio engineers, and manage billing securely online.",
+    image: "assets/img/portfolio/brewery-home.png",
+    link: "https://breweryrecording.com/",
+    slider: [
+      "assets/img/portfolio/brewery-home.png",
+      "assets/img/portfolio/brewery-admin.png",
+      "assets/img/portfolio/brewery-studio.png",
+      "assets/img/portfolio/brewery-serice.png",
+      "assets/img/portfolio/brewery-staff.png",
+      "assets/img/portfolio/brewery-booking.png"
+    ]
   },
   {
-      "title": "Towel Management System",
-      "link": "#",
-      "category": ["software","Software Development"],
-      "tech": "HTML, CSS, JS, and PHP",
-      "description": "The Towel Management System is custom software designed for textile mills to efficiently manage various aspects of yarn processing and inventory management. It facilitates tracking of empty and loaded beams, yarn inward and outward movements, cone rewinding, and generates comprehensive reports on purchases, deliveries, and production activities. With user-friendly interfaces, robust security measures, and potential for integration with other systems, it streamlines operations and enhances productivity in textile manufacturing processes.",
-      "image": "assets/img/portfolio/towel-dashboard.png",
-      "slider": [
-        "assets/img/portfolio/towel-dashboard.png",
-        "assets/img/portfolio/towel-login.png",
-        "assets/img/portfolio/towel-po.png",
-        "assets/img/portfolio/towel-report.png",
-        "assets/img/portfolio/towel-rewind.png",
-        "assets/img/portfolio/towel-wastage.png"
-      ]
+    title: "NP Car Rentals Dubai",
+    category: ["web", "Web & SaaS"],
+    tech: "React.js, Laravel, Stripe Payment Gateway, REST APIs",
+    shortDesc: "Premier Dubai luxury vehicle reservation portal with real-time calendar availability and instant Stripe checkout.",
+    description: "Engineered high-end car rental platform featuring dynamic fleet browsing, multi-attribute filtering (brand, category, daily rates), instant date-range booking, Stripe card payments, and comprehensive admin rental agreement management.",
+    image: "assets/img/portfolio/rental_car-home.png",
+    link: "https://github.com/m-anas-iqbal",
+    slider: [
+      "assets/img/portfolio/rental_car-home.png",
+      "assets/img/portfolio/rental_car-filter.png",
+      "assets/img/portfolio/rental_car-detail.png",
+      "assets/img/portfolio/rental_car-detail2.png",
+      "assets/img/portfolio/rental_car-checkout.png",
+      "assets/img/portfolio/rental_car-payment.png",
+      "assets/img/portfolio/rental_car-admin.png"
+    ]
   },
-  // ,
+  {
+    title: "Manage Your School (MYS)",
+    category: ["enterprise", "Enterprise"],
+    tech: "Laravel, PHP, MySQL, JavaScript, Bootstrap",
+    shortDesc: "Comprehensive digital school ERP with online admissions, parent/student portals, and automated fee processing.",
+    description: "Replaces traditional paper-based school operations with automated student admissions, fee voucher generation, classroom grading, report cards, and role-segregated panels for principals, teachers, parents, and students.",
+    image: "assets/img/portfolio/mys-home.png",
+    link: "https://github.com/m-anas-iqbal",
+    slider: [
+      "assets/img/portfolio/mys-home.png",
+      "assets/img/portfolio/mys-school-home.png",
+      "assets/img/portfolio/mys-school-registration.png",
+      "assets/img/portfolio/mys-school-adminission.png",
+      "assets/img/portfolio/mys-school-fees-type.png",
+      "assets/img/portfolio/mys-school-student.png",
+      "assets/img/portfolio/mys-school-admission-list.png"
+    ]
+  },
+  {
+    title: "Rango Cart E-Commerce",
+    category: ["ecom", "E-Commerce"],
+    tech: "Laravel, PHP, JavaScript, MySQL, Payment Gateways",
+    shortDesc: "Modern e-commerce storefront for educational & STEM toys with live order management and payment tracking.",
+    description: "E-commerce platform designed for high-conversion shopping of STEM learning toys. Includes multi-variant products, customer cart/wishlist state, voucher management, courier tracking integration, and admin sales analytics.",
+    image: "assets/img/portfolio/rango-home.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/rango-home.png",
+      "assets/img/portfolio/rango-home2.png",
+      "assets/img/portfolio/rango-cart.png",
+      "assets/img/portfolio/rango-product-detail.png",
+      "assets/img/portfolio/rango-admin-dash.png",
+      "assets/img/portfolio/rango-admin-order.png"
+    ]
+  },
+  {
+    title: "MapBirdy Community Geolocation",
+    category: ["mobile-ai", "AI & Automation"],
+    tech: "Laravel, Google Maps API, JavaScript, MySQL",
+    shortDesc: "Neighborhood feedback and civic issue voting platform powered by Google Maps API.",
+    description: "Empowers citizens to mark geolocation points on interactive maps, vote on civic infrastructure initiatives, launch neighborhood discussions, and submit direct petitions to municipal stakeholders.",
+    image: "assets/img/portfolio/mapbirdy-login.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/mapbirdy-user-dashboard.png",
+      "assets/img/portfolio/mapbirdy-vote-comment.png",
+      "assets/img/portfolio/mapbirdy-map-maker.png",
+      "assets/img/portfolio/mapbirdy-search.png",
+      "assets/img/portfolio/mapbirdy-login.png"
+    ]
+  },
+  {
+    title: "Dukan24h Multi-Vendor Marketplace",
+    category: ["ecom", "E-Commerce"],
+    tech: "Laravel, PHP, MySQL, Multi-Vendor Architecture",
+    shortDesc: "End-to-end retail marketplace and shop management platform with built-in Point of Sale.",
+    description: "Caters to three core user roles: retail consumers, vendor businesses, and administrative supervisors. Features dedicated vendor storefronts, wholesale quotation requests, inventory tracking, and POS barcode lookups.",
+    image: "assets/img/portfolio/dukan24h-home.png",
+    link: "#",
+    slider: [
+      "assets/img/portfolio/dukan24h-home.png",
+      "assets/img/portfolio/dukan24h-shop-page.png",
+      "assets/img/portfolio/dukan24h-shop-register.png",
+      "assets/img/portfolio/dukan24h-search.png",
+      "assets/img/portfolio/dukan24h-contact.png"
+    ]
+  },
+  {
+    title: "Christian Creations Unlimited",
+    category: ["ecom", "E-Commerce"],
+    tech: "Laravel, Stripe, JavaScript, CSS3, MySQL",
+    shortDesc: "Custom jewelry and apparel e-commerce store with multi-tier consultant commissions and secure checkout.",
+    description: "Bespoke e-commerce platform with specialized role structures (consultant, member, admin). Integrates Stripe for secure card transactions, automated affiliate referral tracking, and order fulfillment queues.",
+    image: "assets/img/portfolio/christan-ecom-home.png",
+    link: "https://christiancreationsunlimited.com/",
+    slider: [
+      "assets/img/portfolio/christan-ecom-home.png",
+      "assets/img/portfolio/christan-ecom-product-page.png",
+      "assets/img/portfolio/christan-ecom-fearture.png",
+      "assets/img/portfolio/christan-admin-product.png",
+      "assets/img/portfolio/ch.png"
+    ]
+  }
 ];
 
+const testimonialsData = [
+  {
+    quote: "Anas is an exceptionally talented individual with a strong work ethic. He is adaptable, self-motivated, and always eager to learn. He quickly grasps complex concepts and executes tasks with precision and creativity. His positive attitude and problem-solving skills make him a valuable asset to any team.",
+    image: "assets/img/testimonials/avatar.jpg",
+    name: "Abdullah",
+    position: "CEO, Dadatextile"
+  },
+  {
+    quote: "His services command a premium price, yet the impeccable quality of his work, expert architectural guidance, and dedication speak volumes about his worth. Anas delivered beyond expectations.",
+    image: "assets/img/testimonials/avatar.jpg",
+    name: "Abdul Malik",
+    position: "General Manager, Orient Metal"
+  },
+  {
+    quote: "Anas is exceptionally skilled, responsive, and works efficiently. He takes complete ownership of the project architecture and was a pleasure to work with.",
+    image: "assets/img/testimonials/avatar.jpg",
+    name: "Vinnie Pelia",
+    position: "Founder, MapBirdy"
+  },
+  {
+    quote: "Working with Anas Iqbal was seamless. Short deadlines, complex requirements, and tight constraints were handled with absolute professionalism and speed.",
+    image: "assets/img/testimonials/avatar.jpg",
+    name: "Saba Yasmeen",
+    position: "Lead Software Engineer"
+  },
+  {
+    quote: "Anas is patient, technically profound, and reliable. He helped guide us through the entire development roadmap with flawless execution.",
+    image: "assets/img/testimonials/avatar.jpg",
+    name: "Tahir Qureshi",
+    position: "Founder, Softweb"
+  },
+  {
+    quote: "Communication was top-notch and delivery was rock-solid. Anas is our go-to senior developer for complex Laravel and React solutions.",
+    image: "assets/img/testimonials/faisal.jpg",
+    name: "Faisal",
+    position: "Product Director"
+  }
+];
 
+let globalThreeGroup = null;
+let globalThreeCamera = null;
 
+/*--------------------------------------------------------------
+# 1. LENIS SMOOTH MOMENTUM SCROLLING
+--------------------------------------------------------------*/
+function initLenis() {
+  if (typeof Lenis === 'undefined') return;
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    smoothWheel: true
+  });
 
-  // Testimonials data in JSON format
-  const testimonialsData = [
-    {
-      quote: "His services command a premium price, yet the impeccable quality of his work, expert guidance, and glowing recommendations speak volumes about his worth.",
-      image: "assets/img/testimonials/avatar.jpg",
-      name: "Abdul Malik",
-      position: "Manager - Orient Metal"
-    },
-    {
-      quote: "Anas is skilled, responsive, and works efficiently. He gives it his all in the project and is quite accommodating.",
-      image: "assets/img/testimonials/avatar.jpg",
-      name: "Vinnie Pelia",
-      position: "Founder - MapBirdy"
-    },
-    {
-      quote: "Anas is amazing. He was really patient and professional to get me through the whole process. Highly recommended.",
-      image: "assets/img/testimonials/avatar.jpg",
-      name: "Tahir Qureshi",
-      position: "Founder - softwebpk.com"
-    },
-    {
-      quote: "It was a pleasure working with Anas Iqbal. I had a short deadline and platform limitations that prevented me from finalising content management on the website the way I wanted. He was incredibly dedicated to fix this and tweak it to be exactly how I imagined it on desktop as well as mobile devices. I could not recommend him enough and I will 100% continue working with him. Whoever is looking at this feedback should too.",
-      image: "assets/img/testimonials/avatar.jpg",
-      name: "Saba Yasmeen",
-      position: "Software Engineer"
-    },
-    {
-      quote: "Anas did a good job. Communication was excellent as this is always a key for any project to succeed. Looking forward to working with him again.",
-      image: "assets/img/testimonials/faisal.jpg",
-      name: "Faisal",
-      position: "Unknown"
-    }
-  ];
-   
+  lenis.on('scroll', () => {
+    if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.update();
+  });
 
-
-
-  var skillsData = [
-    { "skill": "HTML", "percentage": "100%" },
-    { "skill": "PHP", "percentage": "90%" },
-    { "skill": "Laravel", "percentage": "90%" },
-    { "skill": "JavaScript", "percentage": "90%" },
-    { "skill": "CSS", "percentage": "80%" },
-    { "skill": "Linux", "percentage": "90%" },
-    { "skill": "MySQL/MS SQL", "percentage": "70%" },
-    { "skill": "React JS & Vue JS", "percentage": "60%" },
-    { "skill": "Python", "percentage": "60%" },
-    { "skill": "WordPress/CMS", "percentage": "60%" },
-    { "skill": "React Native", "percentage": "50%" },
-    { "skill": "Django/FastApi", "percentage": "70%" },
-    { "skill": "Swift", "percentage": "30%" },
-    { "skill": "Express JS", "percentage": "40%" }
-  ];
-  document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-});
-
-document.onkeydown = function (e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
-        return false;
-    }
-};
-document.onmousedown = function (e) {
-    e.preventDefault();
-};
-  function populatePortfolioDetails(projectData) {
-    // Get project ID from URL
-    var url = window.location.href;
-    var url = new URL(url);
-    var idVal = url.searchParams.get("project");
-    idVal = idVal;
-  
-    // Set portfolio title
-    document.querySelector('h2.portfolio-title').innerHTML = `${projectData[idVal].title}`;
-  
-    // Populate swiper slides
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
-    projectData[idVal].slider.forEach(image => {
-      swiperWrapper.innerHTML += `
-        <div class="swiper-slide">
-          <img src="${image}" alt="Slider Image" class="img-fluid">
-        </div>
-      `;
+  if (typeof gsap !== 'undefined') {
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
     });
-  
-    // Populate project information
-    document.querySelector('.portfolio-info').innerHTML = `
-      <h3>Project information</h3>
-      <ul>
-        <li><strong>Category</strong>: ${projectData[idVal].category[1]}</li>
-        <li><strong>Languages</strong>: ${projectData[idVal].tech}</li>
-        <li><strong>Project URL</strong>: <a href="${projectData[idVal].link}"  target="_blank" rel="noopener noreferrer"  >${projectData[idVal].link}</a></li>
-      </ul>
-      <p>${projectData[idVal].description}</p>
-    `;
-  
-    // Initialize Swiper
-    new Swiper('.portfolio-details-slider', {
-      speed: 700,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      }
-    });
+    gsap.ticker.lagSmoothing(0);
   }
-
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
-    }
-  }
-
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
-  }
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function(e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
-
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
-
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
-
-      this.classList.add('active')
-
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
-
-      scrollto(this.hash)
-    }
-
-
-
-  }, true)
-
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
-
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
-
-        header.classList.add('header-top')
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
-          }
-        })
-
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
-
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Skills animation
-   */
- 
-    // Function to dynamically append skills
-    function appendSkills(skillsData) {
-      var skillsContent = document.getElementById('skills-content');
-  
-      skillsData.forEach(function(skill) {
-        var skillHTML = `
-          <div class="col-lg-6">
-            <div class="progress">
-              <span class="skill">${skill.skill} <i class="val">${skill.percentage}</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" style="width: ${skill.percentage}" aria-valuenow="${skill.percentage}" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
-        `;
-        skillsContent.innerHTML += skillHTML;
-      });
-      let skilsContent = select('.skills-content');
-      if (skilsContent) {
-        new Waypoint({
-          element: skilsContent,
-          offset: '80%',
-          handler: function(direction) {
-            let progress = select('.progress .progress-bar', true);
-            progress.forEach((el) => {
-              el.style.width = el.getAttribute('aria-valuenow') + '%'
-            });
-          }
-        })
-      }
-    }
-  /**
-   * Testimonials slider
-   */
-
-// Function to append testimonials dynamically
-function appendTestimonials(testimonials) {
-  const testimonialsSlider = document.querySelector('.testimonials-slider .swiper-wrapper');
-
-  testimonials.forEach(testimonial => {
-    testimonialsSlider.innerHTML += `
-      <div class="swiper-slide">
-        <div class="testimonial-item">
-          <p>
-            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-            ${testimonial.quote}
-            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-          </p>
-          <img src="${testimonial.image}" class="testimonial-img" alt="${testimonial.name}">
-          <h3>${testimonial.name}</h3>
-          <h4>${testimonial.position}</h4>
-        </div>
-      </div><!-- End testimonial item -->
-    `;
-  });
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
 }
-  function populatePortfolioItems(projectData) {
-    const portfoliosList = document.querySelector(".portfolios-list");
-    
-    // Clear previous content
-    portfoliosList.innerHTML = '';
-  
-    // Loop through projectData
-    projectData.forEach((project, index) => {
-      // Create portfolio item HTML
-      const portfolioItemHTML = `
-        <div class="col-lg-4 col-md-6 portfolio-item filter-${project.category[0]}">
-          <div class="portfolio-wrap">
-            <img src="${project.image}" class="img-fluid" alt="${project.title}">
-            <div class="portfolio-info">
-              <a href="detail.html?project=${index}" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Project Details">
-                <h4>${project.title}</h4>
-              </a>
-              <p>${project.category[1]}</p>
-            </div>
+
+/*--------------------------------------------------------------
+# 2. FUTURISTIC CYBER 3D BACKGROUND (FAST, DYNAMIC & FLUID)
+--------------------------------------------------------------*/
+function initThreeScene() {
+  const container = document.getElementById('three-canvas-container');
+  if (!container || typeof THREE === 'undefined') return;
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(
+    60,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    1000
+  );
+  camera.position.z = 7;
+  globalThreeCamera = camera;
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  container.appendChild(renderer.domElement);
+
+  const worldGroup = new THREE.Group();
+  scene.add(worldGroup);
+  globalThreeGroup = worldGroup;
+
+  // Dynamically extract colors from the active :root theme palette
+  const rootStyles = getComputedStyle(document.documentElement);
+  const primaryHex = rootStyles.getPropertyValue('--primary').trim() || '#0d9488';
+  const accentHex = rootStyles.getPropertyValue('--accent-coral').trim() || '#d97706';
+  const cyanHex = rootStyles.getPropertyValue('--accent-cyan').trim() || primaryHex;
+  const amberHex = rootStyles.getPropertyValue('--accent-amber').trim() || accentHex;
+  const purpleHex = rootStyles.getPropertyValue('--accent-purple').trim() || primaryHex;
+
+  const colorPrimary = new THREE.Color(primaryHex);
+  const colorAccent = new THREE.Color(accentHex);
+  const colorCyan = new THREE.Color(cyanHex);
+  const colorAmber = new THREE.Color(amberHex);
+  const colorPurple = new THREE.Color(purpleHex);
+
+  // 1. Central Cyber Torus Knot (Uses Active Theme Primary Color)
+  const knotGeo = new THREE.TorusKnotGeometry(2.1, 0.52, 140, 24);
+  const knotMat = new THREE.MeshStandardMaterial({
+    color: colorPrimary,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.38,
+    roughness: 0.2,
+    metalness: 0.85
+  });
+  const knotMesh = new THREE.Mesh(knotGeo, knotMat);
+  worldGroup.add(knotMesh);
+
+  // 2. Inner Glowing Core (Uses Active Theme Accent Color)
+  const coreGeo = new THREE.IcosahedronGeometry(1.25, 1);
+  const coreMat = new THREE.MeshBasicMaterial({
+    color: colorAccent,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.5
+  });
+  const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+  worldGroup.add(coreMesh);
+
+  // 3. Dual Cyber Gyroscope Orbital Rings (Futuristic Tech Accent)
+  const ring1Geo = new THREE.TorusGeometry(3.1, 0.03, 16, 100);
+  const ring1Mat = new THREE.MeshBasicMaterial({
+    color: colorPrimary,
+    transparent: true,
+    opacity: 0.45
+  });
+  const ring1Mesh = new THREE.Mesh(ring1Geo, ring1Mat);
+  ring1Mesh.rotation.x = Math.PI / 3;
+  worldGroup.add(ring1Mesh);
+
+  const ring2Geo = new THREE.TorusGeometry(3.55, 0.025, 16, 100);
+  const ring2Mat = new THREE.MeshBasicMaterial({
+    color: colorAccent,
+    transparent: true,
+    opacity: 0.38
+  });
+  const ring2Mesh = new THREE.Mesh(ring2Geo, ring2Mat);
+  ring2Mesh.rotation.y = Math.PI / 4;
+  worldGroup.add(ring2Mesh);
+
+  // 4. Floating 3D Star & Particle Constellation
+  const particleCount = 800;
+  const particleGeo = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+
+  const palette = [
+    colorPrimary,
+    colorAccent,
+    colorCyan,
+    colorAmber,
+    colorPurple
+  ];
+
+  for (let i = 0; i < particleCount * 3; i += 3) {
+    const r = 3.5 + Math.random() * 5.5;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(Math.random() * 2 - 1);
+
+    positions[i] = r * Math.sin(phi) * Math.cos(theta);
+    positions[i + 1] = r * Math.sin(phi) * Math.sin(theta);
+    positions[i + 2] = r * Math.cos(phi);
+
+    const chosen = palette[Math.floor(Math.random() * palette.length)];
+    colors[i] = chosen.r;
+    colors[i + 1] = chosen.g;
+    colors[i + 2] = chosen.b;
+  }
+
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+  const particleMat = new THREE.PointsMaterial({
+    size: 0.065,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.75
+  });
+
+  const particleCloud = new THREE.Points(particleGeo, particleMat);
+  worldGroup.add(particleCloud);
+
+  // Dynamic Ambient & Orbiting Point Lights
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
+  scene.add(ambientLight);
+
+  const lightPrimary = new THREE.PointLight(colorPrimary, 2.8, 50);
+  lightPrimary.position.set(5, 5, 5);
+  scene.add(lightPrimary);
+
+  const lightAccent = new THREE.PointLight(colorAccent, 2.5, 50);
+  lightAccent.position.set(-5, -5, 5);
+  scene.add(lightAccent);
+
+  // Responsive Mouse Parallax
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    const halfW = window.innerWidth / 2;
+    const halfH = window.innerHeight / 2;
+    mouseX = (e.clientX - halfW) / halfW;
+    mouseY = (e.clientY - halfH) / halfH;
+  });
+
+  window.addEventListener('resize', () => {
+    if (!container) return;
+    camera.aspect = container.clientWidth / container.clientHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(container.clientWidth, container.clientHeight);
+  });
+
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const elapsedTime = clock.getElapsedTime();
+
+    // Responsive spring lerp on cursor
+    targetX += (mouseX - targetX) * 0.045;
+    targetY += (mouseY - targetY) * 0.045;
+
+    // Fast, energetic, and silky-smooth rotation
+    worldGroup.rotation.y += 0.0032 + targetX * 0.004;
+    worldGroup.rotation.x = targetY * 0.22;
+
+    knotMesh.rotation.x = elapsedTime * 0.32;
+    knotMesh.rotation.y = elapsedTime * 0.22;
+    knotMesh.rotation.z = elapsedTime * 0.16;
+
+    coreMesh.rotation.y = -elapsedTime * 0.42;
+    coreMesh.rotation.x = elapsedTime * 0.25;
+
+    ring1Mesh.rotation.z = elapsedTime * 0.28;
+    ring1Mesh.rotation.x = Math.PI / 3 + Math.sin(elapsedTime * 0.6) * 0.15;
+
+    ring2Mesh.rotation.y = -elapsedTime * 0.24;
+    ring2Mesh.rotation.z = Math.cos(elapsedTime * 0.5) * 0.18;
+
+    particleCloud.rotation.y = elapsedTime * 0.06;
+    particleCloud.rotation.z = Math.sin(elapsedTime * 0.3) * 0.04;
+
+    // Subtle rhythmic breathing / pulsing
+    const pulse = 1 + Math.sin(elapsedTime * 1.6) * 0.045;
+    knotMesh.scale.set(pulse, pulse, pulse);
+
+    // Dynamic light orbits
+    lightPrimary.position.x = Math.sin(elapsedTime * 0.65) * 5.5;
+    lightPrimary.position.y = Math.cos(elapsedTime * 0.65) * 5.5;
+    lightPrimary.position.z = Math.sin(elapsedTime * 0.45) * 4;
+
+    lightAccent.position.x = -Math.sin(elapsedTime * 0.65) * 5.5;
+    lightAccent.position.y = -Math.cos(elapsedTime * 0.65) * 5.5;
+    lightAccent.position.z = -Math.sin(elapsedTime * 0.45) * 4;
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+}
+
+/*--------------------------------------------------------------
+# 3. GENUINE X + Y AXIS SCROLL ANIMATION ENGINE
+--------------------------------------------------------------*/
+function initGsapScrollAnimations() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+  // 1. Three.js 3D Model Dynamic Zoom & Rotation (Zoom IN on scroll down, Zoom OUT on scroll up)
+  if (globalThreeGroup) {
+    globalThreeGroup.scale.set(1, 1, 1);
+    globalThreeGroup.position.set(window.innerWidth < 768 ? 0.3 : 1.5, 0, 0);
+
+    // Multi-axis continuous rotation with page scroll
+    gsap.to(globalThreeGroup.rotation, {
+      y: Math.PI * 5,
+      x: Math.PI * 1.4,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.2
+      }
+    });
+
+    // Zoom IN on scroll down (Scales up dramatically), Zooms OUT on scroll up
+    const targetScale = window.innerWidth < 768 ? 1.65 : 2.15;
+    gsap.to(globalThreeGroup.scale, {
+      x: targetScale,
+      y: targetScale,
+      z: targetScale,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.2
+      }
+    });
+
+    // Advance 3D model closer toward the screen on scroll down, recedes back on scroll up
+    gsap.to(globalThreeGroup.position, {
+      x: window.innerWidth < 768 ? 0.4 : 1.9,
+      y: -0.3,
+      z: 1.8,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.2
+      }
+    });
+
+    // Camera zooms in closer on scroll down (z: 7 -> z: 4.6), zooms back out on scroll up
+    if (globalThreeCamera) {
+      gsap.to(globalThreeCamera.position, {
+        z: 4.6,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.2
+        }
+      });
+    }
+  }
+
+  // 2. Top Scroll Progress Bar
+  const progressBar = document.getElementById('scroll-progress-bar');
+  if (progressBar) {
+    gsap.to(progressBar, {
+      width: "100%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.2
+      }
+    });
+  }
+
+  // 3. Kinetic Marquee X-Axis Scroll Velocity Scrub
+  const marqueeTrack = document.getElementById('kinetic-marquee-track');
+  if (marqueeTrack) {
+    gsap.to(marqueeTrack, {
+      x: "-28%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: "body",
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.8
+      }
+    });
+  }
+
+  // 4. Hero Section Multi-Axis Entrance
+  const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  heroTl.from(".hero-status-pill", { y: 20, opacity: 0, duration: 0.6, delay: 0.15 })
+    .from(".hero-title", { x: -40, y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
+    .from(".hero-subtitle", { x: -30, opacity: 0, duration: 0.6 }, "-=0.5")
+    .from(".hero-desc", { y: 25, opacity: 0, duration: 0.6 }, "-=0.4")
+    .from(".hero-cta-group > *", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.4")
+    .from(".hero-glass-profile-card", { x: 50, y: 30, scale: 0.92, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, "-=0.6");
+
+  // 5. Section Headers X+Y Kinetic Reveal
+  gsap.utils.toArray('.section-header').forEach(header => {
+    gsap.from(header.children, {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: header,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      }
+    });
+  });
+
+  // 6. Stats Ribbon Items & Live Number Counters
+  gsap.utils.toArray('.stat-item').forEach((item, idx) => {
+    gsap.from(item, {
+      x: (idx % 2 === 0 ? -25 : 25),
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      ease: "back.out(1.5)",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 90%"
+      }
+    });
+  });
+
+  document.querySelectorAll('.counter-num').forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    if (!target) return;
+    ScrollTrigger.create({
+      trigger: counter,
+      start: "top 90%",
+      once: true,
+      onEnter: () => {
+        let current = 0;
+        const duration = 1200;
+        const stepTime = 30;
+        const increment = target / (duration / stepTime);
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(current);
+          }
+        }, stepTime);
+      }
+    });
+  });
+
+  // 7. About Section: Photo slide-in from Left (X) & Right Text Stagger
+  gsap.from(".about-card-left", {
+    x: -60,
+    y: 30,
+    opacity: 0,
+    duration: 0.9,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".about-card-left",
+      start: "top 85%"
+    }
+  });
+
+  gsap.from(".about-info-box", {
+    x: 35,
+    y: 20,
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.08,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".about-info-grid",
+      start: "top 85%"
+    }
+  });
+
+  // 8. CORE PILLARS MULTI-DIRECTIONAL X+Y CONVERGENCE (CHIPSA / BUZZWORTHY STYLE)
+  const pillarCards = document.querySelectorAll('.pillar-card');
+  pillarCards.forEach((card, idx) => {
+    // 01: Top-Left, 02: Top-Right, 03: Bottom-Left, 04: Bottom-Right
+    const xOffset = (idx % 2 === 0) ? -70 : 70;
+    const yOffset = (idx < 2) ? -40 : 40;
+    const rot = (idx % 2 === 0) ? -3 : 3;
+
+    gsap.fromTo(card,
+      { x: xOffset, y: yOffset, rotation: rot, opacity: 0 },
+      {
+        x: 0,
+        y: 0,
+        rotation: 0,
+        opacity: 1,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 88%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+
+  // 9. Skills & AI Matrix Cards (Alternating Left/Right X+Y glide)
+  gsap.utils.toArray('.skill-box-card').forEach((card, idx) => {
+    const xShift = (idx % 2 === 0) ? -60 : 60;
+    gsap.from(card, {
+      x: xShift,
+      y: 40,
+      opacity: 0,
+      duration: 0.85,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%"
+      }
+    });
+  });
+
+  // 10. Progress Fill Bars
+  gsap.utils.toArray('.prof-meter-fill').forEach(fill => {
+    const targetWidth = fill.style.width || "90%";
+    gsap.fromTo(fill,
+      { width: "0%" },
+      {
+        width: targetWidth,
+        duration: 1.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: fill,
+          start: "top 90%"
+        }
+      }
+    );
+  });
+
+  // 11. Work History Timeline: Slide from Left with Pop Node
+  gsap.utils.toArray('.timeline-entry').forEach((entry, idx) => {
+    const card = entry.querySelector('.timeline-entry-card');
+    const node = entry.querySelector('.timeline-entry-node');
+
+    if (card) {
+      gsap.from(card, {
+        x: -70,
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: entry,
+          start: "top 86%"
+        }
+      });
+    }
+    if (node) {
+      gsap.from(node, {
+        scale: 0,
+        opacity: 0,
+        duration: 0.5,
+        ease: "back.out(2.5)",
+        scrollTrigger: {
+          trigger: entry,
+          start: "top 86%"
+        }
+      });
+    }
+  });
+
+  // 12. Award Showcase Cards: Slide from Right (X+Y)
+  gsap.utils.toArray('.award-showcase-box').forEach((box, i) => {
+    gsap.from(box, {
+      x: 60,
+      y: 30,
+      opacity: 0,
+      duration: 0.85,
+      delay: i * 0.12,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: box,
+        start: "top 85%"
+      }
+    });
+  });
+
+  // 13. macOS Desktop Workspace 3D Perspective Tilt on Scroll
+  gsap.fromTo(".macos-desktop-workspace",
+    { y: 80, rotationX: 6, transformPerspective: 1000, opacity: 0.85 },
+    {
+      y: 0,
+      rotationX: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top 82%",
+        toggleActions: "play none none none"
+      }
+    }
+  );
+
+  // 14. Quotation Section Steps & Live Summary Card
+  gsap.from('.quote-highlight-banner', {
+    y: 30,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: '.quote-highlight-banner',
+      start: "top 85%"
+    }
+  });
+
+  gsap.from('.quote-service-grid', {
+    x: -40,
+    y: 30,
+    opacity: 0,
+    duration: 0.85,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: '.quote-service-grid',
+      start: "top 85%"
+    }
+  });
+
+  gsap.from('.quote-live-summary-card', {
+    x: 40,
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: "back.out(1.4)",
+    scrollTrigger: {
+      trigger: '.quote-live-summary-card',
+      start: "top 85%"
+    }
+  });
+
+  // 15. Testimonials & Contact Cards (Always fully visible, smooth entrance)
+  gsap.from('.contact-grid-card', {
+    y: 25,
+    duration: 0.6,
+    stagger: 0.08,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: '#contact',
+      start: "top 85%",
+      once: true
+    }
+  });
+
+  gsap.from('.direct-email-box', {
+    y: 25,
+    duration: 0.6,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: '.direct-email-box',
+      start: "top 90%",
+      once: true
+    }
+  });
+}
+
+/*--------------------------------------------------------------
+# 4. MACOS DESKTOP OS INTERACTIVE WORKSPACE (CLEAN START)
+--------------------------------------------------------------*/
+let desktopTopZ = 35;
+
+function initByChudyInteractiveDesktop() {
+  // macOS Top Bar Live Clock
+  function updateMenubarClock() {
+    const clockEl = document.getElementById('menubarClock');
+    if (clockEl) {
+      const now = new Date();
+      clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+  }
+  setInterval(updateMenubarClock, 1000);
+  updateMenubarClock();
+  updateActiveWindowsCount();
+}
+
+function updateActiveWindowsCount() {
+  const visible = document.querySelectorAll('.draggable-macos-window:not([style*="display: none"])');
+  const badge = document.getElementById('activeCountText');
+  if (badge) badge.textContent = visible.length;
+
+  const emptyState = document.getElementById('desktopEmptyState');
+  if (emptyState) {
+    emptyState.style.display = visible.length === 0 ? 'flex' : 'none';
+  }
+}
+
+// CLOSE WINDOW
+window.closeDesktopWindow = function (windowId) {
+  const win = document.getElementById(windowId);
+  if (!win) return;
+  gsap.to(win, {
+    scale: 0.2,
+    opacity: 0,
+    duration: 0.22,
+    ease: "back.in(1.5)",
+    onComplete: () => {
+      win.style.display = "none";
+      updateActiveWindowsCount();
+    }
+  });
+};
+
+// SHORTABLE / MINIMIZE WINDOW (Yellow dot)
+window.toggleShortWindow = function (windowId) {
+  const win = document.getElementById(windowId);
+  if (!win) return;
+  win.classList.toggle('window-short');
+  desktopTopZ++;
+  win.style.zIndex = desktopTopZ;
+  updateActiveWindowsCount();
+};
+
+// BIG / MAXIMIZE WINDOW (Green dot)
+window.toggleMaximizeWindow = function (windowId) {
+  const win = document.getElementById(windowId);
+  if (!win) return;
+  win.classList.toggle('window-maximized');
+  desktopTopZ++;
+  win.style.zIndex = desktopTopZ;
+};
+
+// LAUNCH OR REOPEN ANY OF THE 12 PROJECTS ON DESKTOP CANVAS (OPEN MULTIPLE AT ONCE)
+window.launchProjectWindow = function (index) {
+  const item = projectData[index];
+  if (!item) return;
+
+  const emptyState = document.getElementById('desktopEmptyState');
+  if (emptyState) emptyState.style.display = 'none';
+
+  const winId = `osWindow${index}`;
+  let win = document.getElementById(winId);
+
+  // If already exists on canvas, restore and focus it
+  if (win) {
+    win.style.display = "block";
+    win.classList.remove('window-short');
+    win.classList.remove('window-maximized');
+    desktopTopZ++;
+    win.style.zIndex = desktopTopZ;
+    document.querySelectorAll('.draggable-macos-window').forEach(w => w.classList.remove('focused'));
+    win.classList.add('focused');
+    gsap.fromTo(win,
+      { scale: 0.5, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }
+    );
+    updateActiveWindowsCount();
+    return;
+  }
+
+  // Otherwise create new draggable window
+  const canvas = document.getElementById('desktopCanvas');
+  if (!canvas) return;
+
+  const newWin = document.createElement('div');
+  newWin.className = 'draggable-macos-window focused';
+  newWin.id = winId;
+  const offset = (index % 4) * 45;
+  newWin.style.top = `${55 + offset}px`;
+  newWin.style.left = `${40 + offset}px`;
+  desktopTopZ++;
+  newWin.style.zIndex = desktopTopZ;
+
+  const techChips = item.tech.split(',').slice(0, 3).map(t => `<span>${t.trim()}</span>`).join('');
+
+  newWin.innerHTML = `
+    <div class="macos-window-header draggable-handle">
+      <div class="macos-traffic-lights">
+        <span class="traffic-dot dot-red" onclick="closeDesktopWindow('${winId}')" title="Close Window"></span>
+        <span class="traffic-dot dot-yellow" onclick="toggleShortWindow('${winId}')" title="Shorten / Mini"></span>
+        <span class="traffic-dot dot-green" onclick="toggleMaximizeWindow('${winId}')" title="Expand Big"></span>
+      </div>
+      <div class="macos-window-title font-mono"><i class="bi bi-grip-vertical"></i> ~/systems/${item.title.toLowerCase().replace(/[^a-z0-9]/g, '_')}.app</div>
+      <span class="macos-window-badge font-mono">DRAG ME</span>
+    </div>
+    <div class="window-inner-content">
+      <img src="${item.image}" class="window-preview-img" alt="${item.title}">
+      <div class="p-3 window-body-padding">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <span class="window-cat-tag font-mono">${item.category[1].toUpperCase()}</span>
+          <span class="font-mono text-muted" style="font-size: 11px;">SYS.${index + 1}</span>
+        </div>
+        <h4 class="window-title-text">${item.title}</h4>
+        <p class="window-desc-text">${item.shortDesc || item.description || ''}</p>
+        <div class="window-tech-row font-mono mb-3">
+          ${techChips}
+        </div>
+        <div class="d-flex justify-content-between align-items-center gap-2">
+          <button type="button" class="btn-deck-action btn-deck-primary py-1 px-3 flex-grow-1" onclick="openProjectModal(${index})">
+            <i class="bi bi-arrows-fullscreen"></i> Full Specs
+          </button>
+          ${item.link ? `
+            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="btn-deck-action btn-deck-ghost py-1 px-2" title="Source">
+              <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          ` : ''}
+        </div>
+      </div>
+    </div>
+  `;
+
+  canvas.appendChild(newWin);
+
+  newWin.addEventListener('mousedown', () => {
+    desktopTopZ++;
+    newWin.style.zIndex = desktopTopZ;
+    document.querySelectorAll('.draggable-macos-window').forEach(w => w.classList.remove('focused'));
+    newWin.classList.add('focused');
+  });
+
+  if (typeof Draggable !== 'undefined') {
+    Draggable.create(newWin, {
+      handle: ".draggable-handle",
+      bounds: "#desktopCanvas",
+      edgeResistance: 0.65,
+      type: "x,y",
+      onPress: function () {
+        desktopTopZ++;
+        newWin.style.zIndex = desktopTopZ;
+        document.querySelectorAll('.draggable-macos-window').forEach(w => w.classList.remove('focused'));
+        newWin.classList.add('focused');
+      }
+    });
+  }
+
+  gsap.fromTo(newWin,
+    { scale: 0.4, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.5)" }
+  );
+
+  updateActiveWindowsCount();
+};
+
+window.openAllWindows = function () {
+  projectData.forEach((_, idx) => {
+    launchProjectWindow(idx);
+  });
+  setTimeout(window.tileWindows, 350);
+};
+
+window.tileWindows = function () {
+  const windows = Array.from(document.querySelectorAll('.draggable-macos-window')).filter(w => w.style.display !== 'none');
+  const cols = window.innerWidth > 1200 ? 3 : 2;
+  const colWidth = 390;
+  const rowHeight = 350;
+
+  windows.forEach((win, idx) => {
+    win.style.display = "block";
+    win.classList.remove('window-maximized');
+
+    const col = idx % cols;
+    const row = Math.floor(idx / cols);
+
+    gsap.to(win, {
+      x: 0,
+      y: 0,
+      top: `${50 + (row * rowHeight)}px`,
+      left: `${25 + (col * colWidth)}px`,
+      duration: 0.45,
+      ease: "power3.out"
+    });
+  });
+  updateActiveWindowsCount();
+};
+
+window.resetDesktop = function () {
+  const windows = Array.from(document.querySelectorAll('.draggable-macos-window'));
+  windows.forEach(w => w.style.display = "none");
+  launchProjectWindow(0);
+  launchProjectWindow(1);
+  launchProjectWindow(2);
+  setTimeout(window.tileWindows, 350);
+};
+
+function populateProjectLaunchers() {
+  // Dynamically sync project count badges & buttons
+  const totalCount = projectData.length;
+  document.querySelectorAll('.project-count-val').forEach(el => {
+    el.textContent = totalCount;
+  });
+
+  const container = document.getElementById('projectLaunchersContainer');
+  if (!container) return;
+
+  let html = '';
+  projectData.forEach((item, index) => {
+    html += `
+      <button type="button" class="project-launcher-pill" onclick="launchProjectWindow(${index})">
+        <i class="bi bi-window-stack text-primary"></i>
+        <span>${item.title}</span>
+        <span class="badge bg-light text-muted font-mono" style="font-size: 10px;">${item.category[1]}</span>
+      </button>
+    `;
+  });
+  container.innerHTML = html;
+}
+
+/*--------------------------------------------------------------
+# 5. INTERACTIVE QUOTATION SYSTEM (ONLY EMAIL)
+--------------------------------------------------------------*/
+const quotationConfig = {
+  selectedType: "Enterprise ERP / POS Platform",
+  selectedFeatures: [
+    "AI & LLM Model Integration",
+    "Chatbot & WhatsApp API Integration",
+    "Workflow & Task Automation (n8n/Zapier)",
+    "Payment Merchant Gateway (Stripe/PayPal)",
+    "Email & Notification Service (SMTP/Resend)",
+    "Role-Based Access Control (RBAC)",
+    "Admin Analytics & Export Reports"
+  ],
+  selectedTimeline: "Standard Delivery (3-5 Weeks)",
+  clientName: "",
+  clientEmail: "",
+  clientCompany: "",
+  clientNotes: ""
+};
+
+function initQuotationCalculator() {
+  const serviceCards = document.querySelectorAll('.quote-service-card');
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      serviceCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.checked = true;
+        quotationConfig.selectedType = radio.value;
+      }
+      updateQuotationSummary();
+    });
+  });
+
+  const moduleChips = document.querySelectorAll('.quote-module-chip');
+  moduleChips.forEach(chip => {
+    const checkbox = chip.querySelector('input[type="checkbox"]');
+    if (!checkbox) return;
+
+    // Ensure initial visual state matches checked property
+    chip.classList.toggle('active', checkbox.checked);
+
+    checkbox.addEventListener('change', () => {
+      chip.classList.toggle('active', checkbox.checked);
+
+      const activeFeatures = [];
+      document.querySelectorAll('.quote-module-chip input[type="checkbox"]:checked').forEach(cb => {
+        activeFeatures.push(cb.value);
+      });
+      quotationConfig.selectedFeatures = activeFeatures;
+      updateQuotationSummary();
+    });
+  });
+
+  // Dynamically sync initial checked features from DOM
+  const initialChecked = Array.from(document.querySelectorAll('.quote-module-chip input[type="checkbox"]:checked')).map(cb => cb.value);
+  if (initialChecked.length > 0) {
+    quotationConfig.selectedFeatures = initialChecked;
+  }
+
+  const timelineItems = document.querySelectorAll('.quote-timeline-item');
+  timelineItems.forEach(item => {
+    item.addEventListener('click', () => {
+      timelineItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const radio = item.querySelector('input[type="radio"]');
+      if (radio) {
+        radio.checked = true;
+        quotationConfig.selectedTimeline = radio.value;
+      }
+      updateQuotationSummary();
+    });
+  });
+
+  const nameEl = document.getElementById('calc-client-name');
+  const emailEl = document.getElementById('calc-client-email');
+  const companyEl = document.getElementById('calc-client-company');
+  const notesEl = document.getElementById('calc-client-notes');
+
+  if (nameEl) nameEl.addEventListener('input', (e) => { quotationConfig.clientName = e.target.value; updateQuotationSummary(); });
+  if (emailEl) emailEl.addEventListener('input', (e) => { quotationConfig.clientEmail = e.target.value; updateQuotationSummary(); });
+  if (companyEl) companyEl.addEventListener('input', (e) => { quotationConfig.clientCompany = e.target.value; updateQuotationSummary(); });
+  if (notesEl) notesEl.addEventListener('input', (e) => { quotationConfig.clientNotes = e.target.value; updateQuotationSummary(); });
+
+  updateQuotationSummary();
+}
+
+function updateQuotationSummary() {
+  const typeText = document.getElementById('live-preview-type');
+  const timelineText = document.getElementById('live-preview-timeline');
+  const featuresBox = document.getElementById('live-preview-modules');
+  const clientText = document.getElementById('live-preview-client');
+
+  if (typeText) typeText.textContent = quotationConfig.selectedType;
+  if (timelineText) timelineText.textContent = quotationConfig.selectedTimeline;
+
+  if (featuresBox) {
+    if (quotationConfig.selectedFeatures.length === 0) {
+      featuresBox.innerHTML = '<span class="text-muted" style="font-size:12px;">Standard Core System</span>';
+    } else {
+      featuresBox.innerHTML = quotationConfig.selectedFeatures.map(f => `<span class="summary-pill">${f}</span>`).join(' ');
+    }
+  }
+
+  if (clientText) {
+    const name = quotationConfig.clientName.trim() || "Prospective Client";
+    const email = quotationConfig.clientEmail.trim() ? ` (${quotationConfig.clientEmail.trim()})` : "";
+    clientText.textContent = name + email;
+  }
+}
+
+function generateQuotationText() {
+  const name = quotationConfig.clientName.trim() || "Prospective Client";
+  const email = quotationConfig.clientEmail.trim() || "Not provided";
+  const company = quotationConfig.clientCompany.trim() || "Not provided";
+  const notes = quotationConfig.clientNotes.trim() || "No additional custom specifications provided.";
+
+  const featuresList = quotationConfig.selectedFeatures.length > 0
+    ? quotationConfig.selectedFeatures.map(f => `  • ${f}`).join('\n')
+    : "  • Standard core architecture";
+
+  return `========================================================
+PROJECT QUOTATION REQUEST
+Recipient: Anas Iqbal (Senior Software Engineer)
+Direct Email: anusiqbal33@gmail.com
+========================================================
+
+CLIENT INFORMATION:
+- Contact Name: ${name}
+- Work Email: ${email}
+- Company / Organization: ${company}
+
+PROJECT SCOPE & ARCHITECTURE:
+- Selected System:
+  ${quotationConfig.selectedType}
+
+- Estimated Delivery Target:
+  ${quotationConfig.selectedTimeline}
+
+- Selected Features & Modules:
+${featuresList}
+
+- Project Brief & Specifications:
+  ${notes}
+
+========================================================
+Generated via Anas Iqbal Portfolio (Executive Edition)
+Portfolio Link: https://m-anas-iqbal.github.io
+========================================================`;
+}
+
+function sendQuoteViaEmail() {
+  const clientName = quotationConfig.clientName.trim() || "Client";
+  const subject = encodeURIComponent(`Project Quotation Request - ${clientName} [${quotationConfig.selectedType}]`);
+  const body = encodeURIComponent(generateQuotationText());
+
+  const mailtoUrl = `mailto:anusiqbal33@gmail.com?subject=${subject}&body=${body}`;
+
+  showAppToast("Opening your email client to send quotation...", "bi-envelope-check");
+
+  setTimeout(() => {
+    window.location.href = mailtoUrl;
+  }, 350);
+}
+
+function copyQuoteToClipboard() {
+  const text = generateQuotationText();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showAppToast("✓ Quotation copied to clipboard! Paste directly into Gmail, Outlook, or WhatsApp.", "bi-clipboard-check");
+    }).catch(() => {
+      fallbackClipboard(text);
+    });
+  } else {
+    fallbackClipboard(text);
+  }
+}
+
+function fallbackClipboard(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  document.execCommand("copy");
+  document.body.removeChild(ta);
+  showAppToast("✓ Quotation copied to clipboard!", "bi-clipboard-check");
+}
+
+function showAppToast(message, iconClass = "bi-check-circle") {
+  let toast = document.getElementById('app-toast-box');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'app-toast-box';
+    toast.className = 'app-toast-box';
+    document.body.appendChild(toast);
+  }
+
+  toast.innerHTML = `<i class="bi ${iconClass}"></i> <span>${message}</span>`;
+  toast.classList.add('show');
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 4000);
+}
+
+function copyContactEmail() {
+  const email = "anusiqbal33@gmail.com";
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(email).then(() => {
+      showAppToast(`✓ Email copied: ${email}`, "bi-clipboard-check");
+    });
+  } else {
+    fallbackClipboard(email);
+  }
+}
+
+function openProjectModal(idx) {
+  const project = projectData[idx];
+  if (!project) return;
+
+  const modal = document.getElementById('project-detail-modal');
+  if (!modal) return;
+
+  const modalCat = modal.querySelector('.modal-cat-text');
+  const modalTitle = modal.querySelector('.modal-title-text');
+  const modalTech = modal.querySelector('.modal-tech-text');
+  const modalDesc = modal.querySelector('.modal-desc-text');
+  const modalLink = modal.querySelector('.modal-live-link');
+  const modalQuoteBtn = modal.querySelector('.modal-quote-trigger');
+  const swiperWrap = modal.querySelector('.modal-swiper-track');
+
+  if (modalCat) modalCat.textContent = project.category[1];
+  if (modalTitle) modalTitle.textContent = project.title;
+  if (modalTech) modalTech.textContent = project.tech;
+  if (modalDesc) modalDesc.textContent = project.description || project.shortDesc;
+
+  if (modalLink) {
+    if (project.link && project.link !== "#") {
+      modalLink.href = project.link;
+      modalLink.style.display = "inline-flex";
+    } else {
+      modalLink.style.display = "none";
+    }
+  }
+
+  if (modalQuoteBtn) {
+    modalQuoteBtn.onclick = () => {
+      closeProjectModal();
+      const quoteSec = document.getElementById('quotation');
+      if (quoteSec) quoteSec.scrollIntoView({ behavior: 'smooth' });
+    };
+  }
+
+  if (swiperWrap) {
+    swiperWrap.innerHTML = project.slider.map(img => `
+      <div class="swiper-slide text-center">
+        <img src="${img}" alt="${project.title}" class="img-fluid rounded" style="max-height: 480px; width: 100%; object-fit: contain;">
+      </div>
+    `).join('');
+  }
+
+  modal.classList.add('show');
+
+  if (typeof Swiper !== 'undefined') {
+    new Swiper('.modal-slider-container', {
+      speed: 500,
+      loop: project.slider.length > 1,
+      pagination: { el: '.modal-slider-pagination', clickable: true }
+    });
+  }
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('project-detail-modal');
+  if (modal) modal.classList.remove('show');
+}
+
+function appendTestimonials(testimonials) {
+  const wrapper = document.querySelector('.testimonials-swiper .swiper-wrapper');
+  if (!wrapper) return;
+
+  wrapper.innerHTML = testimonials.map(t => `
+    <div class="swiper-slide">
+      <div class="testi-slide-card">
+        <div class="testi-quote-icon"><i class="bi bi-quote"></i></div>
+        <p class="testi-quote-text">"${t.quote}"</p>
+        <div class="testi-client-profile">
+          <img src="${t.image}" class="testi-client-avatar" alt="${t.name}">
+          <div>
+            <h4>${t.name}</h4>
+            <span>${t.position}</span>
           </div>
         </div>
-      `;
-      
-      // Append portfolio item HTML to portfoliosList
-      portfoliosList.innerHTML += portfolioItemHTML;
-    });
-  
-    // Initialize Isotope for portfolio filtering
-    window.addEventListener('load', () => {
-      let portfolioContainer = document.querySelector('.portfolio-container');
-      if (portfolioContainer) {
-        let portfolioIsotope = new Isotope(portfolioContainer, {
-          itemSelector: '.portfolio-item',
-          layoutMode: 'fitRows'
-        });
-  
-        let portfolioFilters = document.querySelectorAll('#portfolio-flters li');
-  
-        portfolioFilters.forEach(filter => {
-          filter.addEventListener('click', (e) => {
-            e.preventDefault();
-            portfolioFilters.forEach(el => el.classList.remove('filter-active'));
-            filter.classList.add('filter-active');
-            portfolioIsotope.arrange({
-              filter: filter.getAttribute('data-filter')
-            });
-          });
-        });
-      }
-    });
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
-  
-    /**
-     * Initiate portfolio details lightbox 
-     */
-    const portfolioDetailsLightbox = GLightbox({
-      selector: '.portfolio-details-lightbox',
-      width: '90%',
-      height: '90vh'
-    });
-  
-    /**
-     * Portfolio details slider
-     */
-    new Swiper('.portfolio-details-slider', {
-      speed: 400,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-        clickable: true
-      }
-    });
-  
-  }
-var typed = new Typed(".typing", {
-  strings: ["Full Stack Developer","Lamp Stack Developer","Backend Specialist","Software Engineer","Programmer"],
-  typeSpeed: 100,
-  backSpeed: 60,
-  loop: true
-});
+      </div>
+    </div>
+  `).join('');
 
-var typed = new Typed(".heading-change", {
-  strings: ["Full Stack Developer","Lamp Stack Developer","Backend Specialist","Software Engineer","Programmer"],
-  typeSpeed: 120,
-  backSpeed: 100,
-  loop: true
+  if (typeof Swiper !== 'undefined') {
+    new Swiper('.testimonials-swiper', {
+      speed: 600,
+      loop: true,
+      autoplay: { delay: 5000, disableOnInteraction: false },
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: {
+        768: { slidesPerView: 2, spaceBetween: 20 },
+        1200: { slidesPerView: 3, spaceBetween: 24 }
+      }
+    });
+  }
+}
+
+function initNavbar() {
+  const navbar = document.getElementById('site-navbar');
+  const mobileBtn = document.querySelector('.mobile-nav-btn');
+  const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-link-item a');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+
+    const sections = document.querySelectorAll('section[id], header[id]');
+    let currentId = 'hero';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      if (window.scrollY >= top) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    navItems.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentId}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  if (mobileBtn && navLinks) {
+    mobileBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = mobileBtn.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('bi-list');
+        icon.classList.toggle('bi-x');
+      }
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        const icon = mobileBtn.querySelector('i');
+        if (icon) {
+          icon.classList.add('bi-list');
+          icon.classList.remove('bi-x');
+        }
+      });
+    });
+  }
+}
+
+function initScrollToTop() {
+  const floatingAction = document.getElementById('floating-scroll-action');
+  if (!floatingAction) return;
+  const scrollTopBtn = floatingAction.querySelector('.scroll-top-btn');
+
+  const checkScroll = () => {
+    if (window.scrollY > 350) {
+      floatingAction.classList.add('visible');
+    } else {
+      floatingAction.classList.remove('visible');
+    }
+  };
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+/*--------------------------------------------------------------
+# 6. MASTER BOOTSTRAP INITIALIZATION
+--------------------------------------------------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+  initLenis();
+  initNavbar();
+  initScrollToTop();
+  initThreeScene();
+  initQuotationCalculator();
+  initByChudyInteractiveDesktop();
+  populateProjectLaunchers();
+  appendTestimonials(testimonialsData);
+  initGsapScrollAnimations();
+
+  // Initialize Typed.js on hero
+  if (typeof Typed !== 'undefined') {
+    const typingEl = document.querySelector('.typing');
+    if (typingEl) {
+      new Typed(typingEl, {
+        strings: [
+          "Senior Software Engineer",
+          "Full Stack Architect",
+          "Enterprise ERP & POS Specialist",
+          "AI & Agentic Systems Engineer"
+        ],
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 1800,
+        loop: true
+      });
+    }
+  }
+
+  const modal = document.getElementById('project-detail-modal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeProjectModal();
+    });
+  }
+
+  // Recalculate ScrollTrigger offsets once dynamic DOM elements are inserted
+  if (typeof ScrollTrigger !== 'undefined') {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 250);
+  }
 });
