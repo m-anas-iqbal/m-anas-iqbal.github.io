@@ -1074,9 +1074,21 @@ window.toggleShortWindow = function (windowId) {
 window.toggleMaximizeWindow = function (windowId) {
   const win = document.getElementById(windowId);
   if (!win) return;
-  win.classList.toggle('window-maximized');
+  const isMax = win.classList.toggle('window-maximized');
   desktopTopZ++;
-  win.style.zIndex = desktopTopZ;
+  win.style.zIndex = isMax ? 9999 : desktopTopZ;
+  if (typeof Draggable !== 'undefined') {
+    const d = Draggable.get(win);
+    if (d) {
+      if (isMax) {
+        d.disable();
+        gsap.set(win, { x: 0, y: 0 });
+      } else {
+        d.enable();
+        d.update();
+      }
+    }
+  }
 };
 
 // LAUNCH OR REOPEN ANY OF THE 12 PROJECTS ON DESKTOP CANVAS (OPEN MULTIPLE AT ONCE)
@@ -1168,8 +1180,10 @@ window.launchProjectWindow = function (index) {
   });
 
   if (typeof Draggable !== 'undefined') {
+    const handleEl = newWin.querySelector('.draggable-handle');
     Draggable.create(newWin, {
-      handle: ".draggable-handle",
+      handle: handleEl,
+      cancel: ".traffic-dot",
       bounds: "#desktopCanvas",
       edgeResistance: 0.65,
       type: "x,y",
@@ -1216,7 +1230,13 @@ window.tileWindows = function () {
       top: `${50 + (row * rowHeight)}px`,
       left: `${25 + (col * colWidth)}px`,
       duration: 0.45,
-      ease: "power3.out"
+      ease: "power3.out",
+      onComplete: () => {
+        if (typeof Draggable !== 'undefined') {
+          const d = Draggable.get(win);
+          if (d) d.update();
+        }
+      }
     });
   });
   updateActiveWindowsCount();
