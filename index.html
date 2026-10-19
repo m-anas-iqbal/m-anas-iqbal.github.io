@@ -203,7 +203,8 @@
               <span>Case Studies</span>
               <span class="cta-pill-count">15+</span>
             </a>
-            <a href="assets/doc/M_ANAS.pdf" target="_blank" rel="noopener noreferrer" class="hero-cta-ghost btn-hero-ghost" title="Download CV (PDF)">
+            <a href="assets/doc/M_ANAS.pdf" target="_blank" rel="noopener noreferrer"
+              class="hero-cta-ghost btn-hero-ghost" title="Download CV (PDF)">
               <i class="bi bi-file-earmark-arrow-down-fill"></i>
               <span>Download CV</span>
             </a>
@@ -211,14 +212,13 @@
 
           <!-- Quick Contact Chips -->
           <div class="hero-meta-strip">
-            <button type="button" class="hero-meta-chip hero-chip-copy"
-              onclick="copyContactEmail()" title="Click to copy email">
+            <button type="button" class="hero-meta-chip hero-chip-copy" onclick="copyContactEmail()"
+              title="Click to copy email">
               <i class="bi bi-envelope-at-fill text-primary"></i>
               <span class="meta-chip-text">anusiqbal33@gmail.com</span>
               <i class="bi bi-clipboard ms-1 opacity-75"></i>
             </button>
-            <a href="https://wa.me/923162732897" target="_blank" rel="noopener noreferrer"
-              class="hero-meta-chip">
+            <a href="https://wa.me/923162732897" target="_blank" rel="noopener noreferrer" class="hero-meta-chip">
               <i class="bi bi-whatsapp text-success"></i>
               <span class="meta-chip-text">+92 316 2732897</span>
             </a>
@@ -1070,7 +1070,6 @@
           <div class="quote-live-summary-card">
             <div class="summary-top-head">
               <h4 style="color: var(--text-heading);">Quotation Summary</h4>
-              <!-- <span class="summary-tag-badge">Live Scope</span> -->
             </div>
 
             <div class="summary-spec-item">
@@ -1258,8 +1257,9 @@
   <!-- Floating Theme Switcher Button (Bottom Left) -->
   <div id="floating-theme-action" class="floating-theme-action">
     <button type="button" class="floating-theme-btn" onclick="toggleThemeStudio()" title="Theme Studio (20 Palettes)">
-      <i class="bi bi-palette2"></i>
-      <span class="floating-theme-label">Theme Studio</span>
+      <span class="theme-nav-dots"><span class="dot-1"></span><span class="dot-2"></span><span
+          class="dot-3"></span></span>
+      <span class="floating-theme-label">Studio</span>
       <span class="floating-theme-count">20</span>
     </button>
   </div>
@@ -1267,23 +1267,27 @@
   <!-- ======= THEME STUDIO MODAL (20 PALETTES) ======= -->
   <div id="theme-studio-modal" class="modal-overlay">
     <div class="modal-window theme-studio-window">
+      <button type="button" class="modal-close-btn" onclick="closeThemeStudio()" aria-label="Close Theme Studio" title="Close Theme Studio">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
       <div class="theme-studio-header">
-        <div>
-          <div class="d-flex align-items-center gap-2">
-            <span class="section-badge mb-0"><i class="bi bi-palette2"></i> Color Engine</span>
-            <span id="theme-active-tag" class="badge font-mono"
-              style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--primary);">Active
-              Theme</span>
+        <div class="theme-studio-header-main">
+          <div class="theme-studio-badges">
+            <span class="section-badge mb-0 d-inline-flex align-items-center gap-2"><span class="theme-nav-dots"><span
+                  class="dot-1"></span><span class="dot-2"></span><span class="dot-3"></span></span> Color Engine</span>
+            <span id="theme-active-tag" class="badge font-mono theme-active-badge">Active Theme</span>
           </div>
           <h3 class="theme-studio-title mt-2 mb-1">Executive Theme Studio</h3>
-          <p class="text-muted mb-0" style="font-size: 13px;">Instant real-time color switching with 20 curated palettes
-            across 3 distinct aesthetics.</p>
+          <p class="theme-studio-desc text-muted mb-0">Instant real-time color switching with 20 curated palettes across 3 distinct aesthetics.</p>
         </div>
-        <div class="d-flex align-items-center gap-2">
+        <div class="theme-studio-header-actions">
           <button type="button" class="btn-theme-shuffle" onclick="shuffleTheme()" title="Pick a random theme">
             <i class="bi bi-shuffle"></i> <span>Surprise Me</span>
           </button>
-          <button type="button" class="modal-close-btn position-static" onclick="closeThemeStudio()">&times;</button>
         </div>
       </div>
 
