@@ -433,6 +433,13 @@ function initLenis() {
 /*--------------------------------------------------------------
 # 2. FUTURISTIC CYBER 3D BACKGROUND (FAST, DYNAMIC & FLUID)
 --------------------------------------------------------------*/
+let knotMeshRef = null;
+let coreMeshRef = null;
+let ring1MeshRef = null;
+let ring2MeshRef = null;
+let lightPrimaryRef = null;
+let lightAccentRef = null;
+
 function initThreeScene() {
   const container = document.getElementById('three-canvas-container');
   if (!container || typeof THREE === 'undefined') return;
@@ -483,6 +490,7 @@ function initThreeScene() {
   });
   const knotMesh = new THREE.Mesh(knotGeo, knotMat);
   worldGroup.add(knotMesh);
+  knotMeshRef = knotMesh;
 
   // 2. Inner Glowing Core (Uses Active Theme Accent Color)
   const coreGeo = new THREE.IcosahedronGeometry(1.25, 1);
@@ -494,6 +502,7 @@ function initThreeScene() {
   });
   const coreMesh = new THREE.Mesh(coreGeo, coreMat);
   worldGroup.add(coreMesh);
+  coreMeshRef = coreMesh;
 
   // 3. Dual Cyber Gyroscope Orbital Rings (Futuristic Tech Accent)
   const ring1Geo = new THREE.TorusGeometry(3.1, 0.03, 16, 100);
@@ -505,6 +514,7 @@ function initThreeScene() {
   const ring1Mesh = new THREE.Mesh(ring1Geo, ring1Mat);
   ring1Mesh.rotation.x = Math.PI / 3;
   worldGroup.add(ring1Mesh);
+  ring1MeshRef = ring1Mesh;
 
   const ring2Geo = new THREE.TorusGeometry(3.55, 0.025, 16, 100);
   const ring2Mat = new THREE.MeshBasicMaterial({
@@ -515,6 +525,7 @@ function initThreeScene() {
   const ring2Mesh = new THREE.Mesh(ring2Geo, ring2Mat);
   ring2Mesh.rotation.y = Math.PI / 4;
   worldGroup.add(ring2Mesh);
+  ring2MeshRef = ring2Mesh;
 
   // 4. Floating 3D Star & Particle Constellation
   const particleCount = 800;
@@ -565,10 +576,12 @@ function initThreeScene() {
   const lightPrimary = new THREE.PointLight(colorPrimary, 2.8, 50);
   lightPrimary.position.set(5, 5, 5);
   scene.add(lightPrimary);
+  lightPrimaryRef = lightPrimary;
 
   const lightAccent = new THREE.PointLight(colorAccent, 2.5, 50);
   lightAccent.position.set(-5, -5, 5);
   scene.add(lightAccent);
+  lightAccentRef = lightAccent;
 
   // Responsive Mouse Parallax
   let mouseX = 0;
@@ -738,14 +751,15 @@ function initGsapScrollAnimations() {
     });
   }
 
-  // 4. Hero Section Multi-Axis Entrance
+  // 4. Hero Section Multi-Axis Entrance (Zero X-shift on mobile to prevent horizontal viewport slip)
+  const isMobScreen = window.innerWidth <= 768;
   const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-  heroTl.from(".hero-status-pill", { y: 20, opacity: 0, duration: 0.6, delay: 0.15 })
-    .from(".hero-title", { x: -40, y: 20, opacity: 0, duration: 0.8 }, "-=0.4")
-    .from(".hero-subtitle", { x: -30, opacity: 0, duration: 0.6 }, "-=0.5")
-    .from(".hero-desc", { y: 25, opacity: 0, duration: 0.6 }, "-=0.4")
-    .from(".hero-cta-group > *", { y: 20, opacity: 0, duration: 0.5, stagger: 0.1 }, "-=0.4")
-    .from(".hero-glass-profile-card", { x: 50, y: 30, scale: 0.92, opacity: 0, duration: 0.9, ease: "back.out(1.4)" }, "-=0.6");
+  heroTl.from(".hero-status-pill", { y: 20, opacity: 0, duration: 0.6, delay: 0.15, clearProps: "all" })
+    .from(".hero-title", { x: isMobScreen ? 0 : -40, y: 20, opacity: 0, duration: 0.8, clearProps: "all" }, "-=0.4")
+    .from(".hero-subtitle", { x: isMobScreen ? 0 : -30, opacity: 0, duration: 0.6, clearProps: "all" }, "-=0.5")
+    .from(".hero-desc", { y: 25, opacity: 0, duration: 0.6, clearProps: "all" }, "-=0.4")
+    .from(".hero-cta-group", { y: 20, opacity: 0, duration: 0.5, clearProps: "all" }, "-=0.4")
+    .from(".hero-glass-profile-card", { x: isMobScreen ? 0 : 50, y: 30, scale: 0.92, opacity: 0, duration: 0.9, ease: "back.out(1.4)", clearProps: "all" }, "-=0.6");
 
   // 5. Section Headers X+Y Kinetic Reveal
   gsap.utils.toArray('.section-header').forEach(header => {
@@ -766,7 +780,7 @@ function initGsapScrollAnimations() {
   // 6. Stats Ribbon Items & Live Number Counters
   gsap.utils.toArray('.stat-item').forEach((item, idx) => {
     gsap.from(item, {
-      x: (idx % 2 === 0 ? -25 : 25),
+      x: isMobScreen ? 0 : (idx % 2 === 0 ? -25 : 25),
       y: 30,
       opacity: 0,
       duration: 0.8,
@@ -805,7 +819,7 @@ function initGsapScrollAnimations() {
 
   // 7. About Section: Photo slide-in from Left (X) & Right Text Stagger
   gsap.from(".about-card-left", {
-    x: -60,
+    x: isMobScreen ? 0 : -60,
     y: 30,
     opacity: 0,
     duration: 0.9,
@@ -817,7 +831,7 @@ function initGsapScrollAnimations() {
   });
 
   gsap.from(".about-info-box", {
-    x: 35,
+    x: isMobScreen ? 0 : 35,
     y: 20,
     opacity: 0,
     duration: 0.6,
@@ -833,9 +847,9 @@ function initGsapScrollAnimations() {
   const pillarCards = document.querySelectorAll('.pillar-card');
   pillarCards.forEach((card, idx) => {
     // 01: Top-Left, 02: Top-Right, 03: Bottom-Left, 04: Bottom-Right
-    const xOffset = (idx % 2 === 0) ? -70 : 70;
+    const xOffset = isMobScreen ? 0 : ((idx % 2 === 0) ? -70 : 70);
     const yOffset = (idx < 2) ? -40 : 40;
-    const rot = (idx % 2 === 0) ? -3 : 3;
+    const rot = isMobScreen ? 0 : ((idx % 2 === 0) ? -3 : 3);
 
     gsap.fromTo(card,
       { x: xOffset, y: yOffset, rotation: rot, opacity: 0 },
@@ -857,7 +871,7 @@ function initGsapScrollAnimations() {
 
   // 9. Skills & AI Matrix Cards (Alternating Left/Right X+Y glide)
   gsap.utils.toArray('.skill-box-card').forEach((card, idx) => {
-    const xShift = (idx % 2 === 0) ? -60 : 60;
+    const xShift = isMobScreen ? 0 : ((idx % 2 === 0) ? -60 : 60);
     gsap.from(card, {
       x: xShift,
       y: 40,
@@ -895,7 +909,7 @@ function initGsapScrollAnimations() {
 
     if (card) {
       gsap.from(card, {
-        x: -70,
+        x: isMobScreen ? 0 : -70,
         y: 25,
         opacity: 0,
         duration: 0.8,
@@ -923,7 +937,7 @@ function initGsapScrollAnimations() {
   // 12. Award Showcase Cards: Slide from Right (X+Y)
   gsap.utils.toArray('.award-showcase-box').forEach((box, i) => {
     gsap.from(box, {
-      x: 60,
+      x: isMobScreen ? 0 : 60,
       y: 30,
       opacity: 0,
       duration: 0.85,
@@ -938,7 +952,7 @@ function initGsapScrollAnimations() {
 
   // 13. macOS Desktop Workspace 3D Perspective Tilt on Scroll
   gsap.fromTo(".macos-desktop-workspace",
-    { y: 80, rotationX: 6, transformPerspective: 1000, opacity: 0.85 },
+    { y: 80, rotationX: isMobScreen ? 0 : 6, transformPerspective: 1000, opacity: 0.85 },
     {
       y: 0,
       rotationX: 0,
@@ -966,7 +980,7 @@ function initGsapScrollAnimations() {
   });
 
   gsap.from('.quote-service-grid', {
-    x: -40,
+    x: isMobScreen ? 0 : -40,
     y: 30,
     opacity: 0,
     duration: 0.85,
@@ -978,7 +992,7 @@ function initGsapScrollAnimations() {
   });
 
   gsap.from('.quote-live-summary-card', {
-    x: 40,
+    x: isMobScreen ? 0 : 40,
     y: 40,
     opacity: 0,
     duration: 0.9,
@@ -995,6 +1009,7 @@ function initGsapScrollAnimations() {
     duration: 0.6,
     stagger: 0.08,
     ease: "power2.out",
+    clearProps: "transform",
     scrollTrigger: {
       trigger: '#contact',
       start: "top 85%",
@@ -1006,6 +1021,7 @@ function initGsapScrollAnimations() {
     y: 25,
     duration: 0.6,
     ease: "power2.out",
+    clearProps: "transform",
     scrollTrigger: {
       trigger: '.direct-email-box',
       start: "top 90%",
@@ -1126,9 +1142,10 @@ window.launchProjectWindow = function (index) {
   const newWin = document.createElement('div');
   newWin.className = 'draggable-macos-window focused';
   newWin.id = winId;
-  const offset = (index % 4) * 45;
-  newWin.style.top = `${55 + offset}px`;
-  newWin.style.left = `${40 + offset}px`;
+  const isMobile = window.innerWidth <= 576;
+  const offset = isMobile ? (index % 3) * 15 : (index % 4) * 45;
+  newWin.style.top = isMobile ? `${20 + offset}px` : `${55 + offset}px`;
+  newWin.style.left = isMobile ? `10px` : `${40 + offset}px`;
   desktopTopZ++;
   newWin.style.zIndex = desktopTopZ;
 
@@ -1213,9 +1230,10 @@ window.openAllWindows = function () {
 
 window.tileWindows = function () {
   const windows = Array.from(document.querySelectorAll('.draggable-macos-window')).filter(w => w.style.display !== 'none');
-  const cols = window.innerWidth > 1200 ? 3 : 2;
-  const colWidth = 390;
-  const rowHeight = 350;
+  const isMobile = window.innerWidth <= 768;
+  const cols = window.innerWidth > 1200 ? 3 : (isMobile ? 1 : 2);
+  const colWidth = isMobile ? (window.innerWidth - 30) : 390;
+  const rowHeight = isMobile ? 320 : 350;
 
   windows.forEach((win, idx) => {
     win.style.display = "block";
@@ -1227,8 +1245,8 @@ window.tileWindows = function () {
     gsap.to(win, {
       x: 0,
       y: 0,
-      top: `${50 + (row * rowHeight)}px`,
-      left: `${25 + (col * colWidth)}px`,
+      top: `${(isMobile ? 15 : 50) + (row * rowHeight)}px`,
+      left: `${(isMobile ? 10 : 25) + (col * colWidth)}px`,
       duration: 0.45,
       ease: "power3.out",
       onComplete: () => {
@@ -1246,8 +1264,10 @@ window.resetDesktop = function () {
   const windows = Array.from(document.querySelectorAll('.draggable-macos-window'));
   windows.forEach(w => w.style.display = "none");
   launchProjectWindow(0);
-  launchProjectWindow(1);
-  launchProjectWindow(2);
+  if (window.innerWidth > 768) {
+    launchProjectWindow(1);
+    launchProjectWindow(2);
+  }
   setTimeout(window.tileWindows, 350);
 };
 
@@ -1629,8 +1649,8 @@ function initNavbar() {
       }
     });
 
-    navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
+    navLinks.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
         navLinks.classList.remove('open');
         const icon = mobileBtn.querySelector('i');
         if (icon) {
@@ -1710,6 +1730,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Initialize Executive Theme Studio (20 Palettes)
+  initThemeStudio();
+
   // Recalculate ScrollTrigger offsets once dynamic DOM elements are inserted
   if (typeof ScrollTrigger !== 'undefined') {
     setTimeout(() => {
@@ -1717,3 +1740,357 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 250);
   }
 });
+
+/*--------------------------------------------------------------
+# 7. 🎨 EXECUTIVE THEME STUDIO (20 CURATED PALETTES ENGINE)
+--------------------------------------------------------------*/
+const THEME_PALETTES = [
+  // ☀️ GROUP 1: 7 LIGHT PALETTES
+  {
+    id: 'light-1',
+    name: 'Cyber Emerald & Champagne Gold',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'Fintech & Executive Luxury (Linear / Stripe)',
+    colors: { c1: '#0d9488', c2: '#d97706', c3: '#10b981', c4: '#f8fafc', c5: '#e2e8f0', c6: '#090d16' }
+  },
+  {
+    id: 'light-2',
+    name: 'Kyoto Matcha & Warm Terracotta',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'Editorial Zen Studio & Japanese Wabi-Sabi',
+    colors: { c1: '#2d5a43', c2: '#c25e40', c3: '#b47b44', c4: '#fcfaf6', c5: '#e7dfd5', c6: '#1c2826' }
+  },
+  {
+    id: 'light-3',
+    name: 'Sunlit Tangelo & Pacific Sapphire',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'Ultra Vibrant & High-Energy California Daytime',
+    colors: { c1: '#ea580c', c2: '#059669', c3: '#2563eb', c4: '#fffbf5', c5: '#fed7aa', c6: '#1c1917' }
+  },
+  {
+    id: 'light-4',
+    name: 'Parisian Rose Atelier & Lavender',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'High Fashion & Luxury Atelier (Cartier / Vogue)',
+    colors: { c1: '#be123c', c2: '#7c3aed', c3: '#db2777', c4: '#fff5f7', c5: '#fce7f3', c6: '#310d20' }
+  },
+  {
+    id: 'light-5',
+    name: 'Aegean Breeze & Coral Shore',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'Mediterranean Coastal Cloud & Deep Marine',
+    colors: { c1: '#0284c7', c2: '#f43f5e', c3: '#0d9488', c4: '#f0f9ff', c5: '#bae6fd', c6: '#082f49' }
+  },
+  {
+    id: 'light-6',
+    name: 'Tuscan Olive Grove & Golden Ochre',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'Earthy Italian Villa & Heritage Craftsmanship',
+    colors: { c1: '#4d7c0f', c2: '#d97706', c3: '#b91c1c', c4: '#fefce8', c5: '#fef08a', c6: '#1a2e05' }
+  },
+  {
+    id: 'light-7',
+    name: 'Swiss Minimalist & Bauhaus Cobalt',
+    category: 'light',
+    badge: 'Light ☀️',
+    badgeClass: 'theme-badge-light',
+    vibe: 'Pristine Swiss Grid Typography & Atelier',
+    colors: { c1: '#1d4ed8', c2: '#dc2626', c3: '#eab308', c4: '#ffffff', c5: '#e5e7eb', c6: '#111827' }
+  },
+
+  // 🌙 GROUP 2: 7 DARK PALETTES
+  {
+    id: 'dark-8',
+    name: 'Obsidian Matrix & Neon Cyan',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Deep Dark Terminal / Next-Gen Cyberspace',
+    colors: { c1: '#00f2fe', c2: '#818cf8', c3: '#10b981', c4: '#090d16', c5: '#1e293b', c6: '#f8fafc' }
+  },
+  {
+    id: 'dark-9',
+    name: 'Onyx Titanium & Molten Amber Gold',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Executive Black & Gold Luxury (Apple Pro / Leica)',
+    colors: { c1: '#f59e0b', c2: '#fb923c', c3: '#eab308', c4: '#121214', c5: '#27272a', c6: '#fafafa' }
+  },
+  {
+    id: 'dark-10',
+    name: 'Cyber Forest & Phosphor Mint',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Bioluminescent Rainforest & Emerald Mint',
+    colors: { c1: '#10b981', c2: '#06b6d4', c3: '#34d399', c4: '#051311', c5: '#0f2923', c6: '#ecfdf5' }
+  },
+  {
+    id: 'dark-11',
+    name: 'Velvet Galaxy & Royal Violet',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Cosmic Nebula & Deep Space Intelligence',
+    colors: { c1: '#a855f7', c2: '#ec4899', c3: '#6366f1', c4: '#0f0728', c5: '#241442', c6: '#faf5ff' }
+  },
+  {
+    id: 'dark-12',
+    name: 'Blood Moon Ruby & Crimson Ember',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Dark Knight Fantasy & Volcanic Obsidian Glass',
+    colors: { c1: '#f43f5e', c2: '#fb7185', c3: '#f97316', c4: '#130307', c5: '#2d0b13', c6: '#fff1f2' }
+  },
+  {
+    id: 'dark-13',
+    name: 'Stealth Carbon & Glacier Ice',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Stealth Aerospace & Nordic Aurora Tech',
+    colors: { c1: '#38bdf8', c2: '#2dd4bf', c3: '#60a5fa', c4: '#0b0f19', c5: '#1e293b', c6: '#f0fdf4' }
+  },
+  {
+    id: 'dark-14',
+    name: 'Dark Roast Espresso & Caramel',
+    category: 'dark',
+    badge: 'Dark 🌙',
+    badgeClass: 'theme-badge-dark',
+    vibe: 'Speakeasy Whiskey Lounge & Smoked Oak',
+    colors: { c1: '#d97706', c2: '#b45309', c3: '#f59e0b', c4: '#17120e', c5: '#2e221b', c6: '#fef3c7' }
+  },
+
+  // ⚡ GROUP 3: 6 NEON & FUNKY PALETTES
+  {
+    id: 'neon-15',
+    name: 'Miami Vice 80s Synthwave',
+    category: 'neon',
+    badge: 'Neon ⚡',
+    badgeClass: 'theme-badge-neon',
+    vibe: 'High-Voltage Cyber Synthwave (Miami Nights)',
+    colors: { c1: '#ff007f', c2: '#00f0ff', c3: '#39ff14', c4: '#0a0618', c5: '#26133e', c6: '#ffffff' }
+  },
+  {
+    id: 'neon-16',
+    name: 'Radioactive Matrix Terminal',
+    category: 'neon',
+    badge: 'Neon ⚡',
+    badgeClass: 'theme-badge-neon',
+    vibe: '90s Hacker Console & Cyber Weapon Plasma',
+    colors: { c1: '#00ff66', c2: '#10e6d6', c3: '#e2ff3b', c4: '#020904', c5: '#0a2412', c6: '#dcfce7' }
+  },
+  {
+    id: 'neon-17',
+    name: 'Y2K Acid Pop & Hyper Sunset',
+    category: 'neon',
+    badge: 'Funky 🚀',
+    badgeClass: 'theme-badge-neon',
+    vibe: 'Rave Culture / Pop-Art Maximalism (MTV Y2K)',
+    colors: { c1: '#ffdd00', c2: '#ff2a85', c3: '#8a2be2', c4: '#0e0b16', c5: '#301934', c6: '#fffdf0' }
+  },
+  {
+    id: 'neon-18',
+    name: 'Bubblegum Vaporwave & Pastel',
+    category: 'neon',
+    badge: 'Funky 🌸',
+    badgeClass: 'theme-badge-neon',
+    vibe: 'Aesthetic Windows 95 & Japanese City Pop',
+    colors: { c1: '#ff70a6', c2: '#70d6ff', c3: '#ffd670', c4: '#170b22', c5: '#361b4d', c6: '#ffeffa' }
+  },
+  {
+    id: 'neon-19',
+    name: 'Glitchpunk Laser Arcade',
+    category: 'neon',
+    badge: 'Neon 👾',
+    badgeClass: 'theme-badge-neon',
+    vibe: 'Tokyo Akihabara Neo-Arcade & CRT Phosphor',
+    colors: { c1: '#ff5e00', c2: '#00e5ff', c3: '#d500f9', c4: '#05050f', c5: '#1c1236', c6: '#ffffff' }
+  },
+  {
+    id: 'neon-20',
+    name: '70s Retro Disco & Funky Vinyl',
+    category: 'neon',
+    badge: 'Funky 🕺',
+    badgeClass: 'theme-badge-neon',
+    vibe: 'Groovy Soul / Woodstock Nostalgia / Vintage',
+    colors: { c1: '#f59e0b', c2: '#ea580c', c3: '#84cc16', c4: '#1c130c', c5: '#3d2617', c6: '#fef08a' }
+  }
+];
+
+let activeThemeId = 'light-1';
+
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+  const num = parseInt(hex, 16);
+  return `${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}`;
+}
+
+function applyPalette(themeInput, save = true) {
+  let theme = null;
+  if (typeof themeInput === 'string') {
+    theme = THEME_PALETTES.find(t => t.id === themeInput);
+  } else if (themeInput && themeInput.colors) {
+    theme = themeInput;
+  }
+  if (!theme) return;
+
+  activeThemeId = theme.id;
+  const root = document.documentElement;
+
+  // 1. Set CSS root variables
+  root.style.setProperty('--c1', theme.colors.c1);
+  root.style.setProperty('--c2', theme.colors.c2);
+  root.style.setProperty('--c3', theme.colors.c3);
+  root.style.setProperty('--c4', theme.colors.c4);
+  root.style.setProperty('--c5', theme.colors.c5);
+  root.style.setProperty('--c6', theme.colors.c6);
+  root.style.setProperty('--primary-rgb', hexToRgb(theme.colors.c1));
+
+  // 2. Update browser meta theme-color
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  if (metaTheme) metaTheme.setAttribute('content', theme.colors.c1);
+
+  // 3. Update Three.js 3D meshes & lights in real time
+  if (typeof THREE !== 'undefined') {
+    const cPrimary = new THREE.Color(theme.colors.c1);
+    const cAccent = new THREE.Color(theme.colors.c2);
+
+    if (knotMeshRef && knotMeshRef.material) knotMeshRef.material.color = cPrimary;
+    if (coreMeshRef && coreMeshRef.material) coreMeshRef.material.color = cAccent;
+    if (ring1MeshRef && ring1MeshRef.material) ring1MeshRef.material.color = cPrimary;
+    if (ring2MeshRef && ring2MeshRef.material) ring2MeshRef.material.color = cAccent;
+    if (lightPrimaryRef) lightPrimaryRef.color = cPrimary;
+    if (lightAccentRef) lightAccentRef.color = cAccent;
+  }
+
+  // 4. Update UI cards active state
+  document.querySelectorAll('.theme-card-pill').forEach(card => {
+    card.classList.toggle('active', card.dataset.themeId === theme.id);
+  });
+
+  const tag = document.getElementById('theme-active-tag');
+  if (tag) tag.textContent = `${theme.name} (${theme.badge})`;
+
+  // 5. Save to localStorage
+  if (save) {
+    try {
+      localStorage.setItem('anas_portfolio_theme', theme.id);
+    } catch (e) { }
+    showAppToast(`🎨 Theme: ${theme.name}`, "bi-palette2");
+  }
+}
+window.applyPalette = applyPalette;
+
+window.renderThemeCards = function (filter = 'all') {
+  const container = document.getElementById('themeCardsGrid');
+  if (!container) return;
+
+  const filtered = filter === 'all'
+    ? THEME_PALETTES
+    : THEME_PALETTES.filter(t => t.category === filter);
+
+  container.innerHTML = filtered.map(t => {
+    const isActive = t.id === activeThemeId ? 'active' : '';
+    return `
+      <div class="theme-card-pill ${isActive}" data-theme-id="${t.id}" onclick="applyPalette('${t.id}')">
+        <div class="theme-swatch-strip">
+          <span style="background: ${t.colors.c1};" title="Primary: ${t.colors.c1}"></span>
+          <span style="background: ${t.colors.c2};" title="Accent: ${t.colors.c2}"></span>
+          <span style="background: ${t.colors.c3};" title="Highlight: ${t.colors.c3}"></span>
+          <span style="background: ${t.colors.c4};" title="Background: ${t.colors.c4}"></span>
+        </div>
+        <div class="theme-card-header">
+          <h4 class="theme-card-title">${t.name}</h4>
+          <span class="theme-card-badge ${t.badgeClass}">${t.badge}</span>
+        </div>
+        <p class="theme-card-vibe">${t.vibe}</p>
+        <div class="theme-card-check"><i class="bi bi-check-lg"></i></div>
+      </div>
+    `;
+  }).join('');
+};
+
+window.filterThemeCards = function (cat) {
+  document.querySelectorAll('.theme-filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === cat);
+  });
+  renderThemeCards(cat);
+};
+
+window.shuffleTheme = function () {
+  const currentIndex = THEME_PALETTES.findIndex(t => t.id === activeThemeId);
+  let nextIndex;
+  do {
+    nextIndex = Math.floor(Math.random() * THEME_PALETTES.length);
+  } while (nextIndex === currentIndex && THEME_PALETTES.length > 1);
+
+  const picked = THEME_PALETTES[nextIndex];
+  applyPalette(picked.id);
+
+  // Smooth scroll active card into view in modal
+  setTimeout(() => {
+    const card = document.querySelector(`.theme-card-pill[data-theme-id="${picked.id}"]`);
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 100);
+};
+
+window.openThemeStudio = function () {
+  const modal = document.getElementById('theme-studio-modal');
+  if (!modal) return;
+  renderThemeCards('all');
+  modal.classList.add('show');
+};
+
+window.closeThemeStudio = function () {
+  const modal = document.getElementById('theme-studio-modal');
+  if (modal) modal.classList.remove('show');
+};
+
+window.toggleThemeStudio = function () {
+  const modal = document.getElementById('theme-studio-modal');
+  if (!modal) return;
+  if (modal.classList.contains('show')) {
+    closeThemeStudio();
+  } else {
+    openThemeStudio();
+  }
+};
+
+function initThemeStudio() {
+  // Listen for backdrop click on theme studio modal
+  const modal = document.getElementById('theme-studio-modal');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeThemeStudio();
+    });
+  }
+
+  // Restore saved theme or default to Palette 1
+  let savedId = null;
+  try {
+    savedId = localStorage.getItem('anas_portfolio_theme');
+  } catch (e) { }
+
+  if (savedId && THEME_PALETTES.some(t => t.id === savedId)) {
+    applyPalette(savedId, false);
+  } else {
+    // Default to Palette 1
+    applyPalette('light-1', false);
+  }
+}

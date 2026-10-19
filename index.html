@@ -148,8 +148,19 @@
         <li class="nav-link-item"><a href="#testimonials">Reviews</a></li>
         <li class="nav-link-item"><a href="#contact">Contact</a></li>
         <li>
+          <button type="button" class="btn-nav-theme" onclick="toggleThemeStudio()" title="Theme Studio (20 Palettes)">
+            <span class="theme-nav-dots">
+              <span class="dot-1"></span>
+              <span class="dot-2"></span>
+              <span class="dot-3"></span>
+            </span>
+            <span>Themes</span>
+          </button>
+        </li>
+        <li>
           <a href="#quotation" class="btn-nav-quote">
-            <i class="bi bi-lightning-charge-fill"></i> Instant Quote
+            <i class="bi bi-lightning-charge-fill"></i>
+            <span>Instant Quote</span>
           </a>
         </li>
       </ul>
@@ -183,31 +194,34 @@
           </p>
 
           <div class="hero-cta-group">
-            <a href="#quotation" class="btn-primary-3d">
-              <i class="bi bi-lightning-charge-fill"></i> Configure Instant Quotation
+            <a href="#quotation" class="hero-cta-primary btn-hero-primary">
+              <span class="cta-icon-glow"><i class="bi bi-lightning-charge-fill"></i></span>
+              <span>Configure Instant Quotation</span>
             </a>
-            <a href="#projects" class="btn-secondary-3d">
-              <i class="bi bi-grid-fill"></i> View Case Studies (15+)
+            <a href="#projects" class="hero-cta-secondary btn-hero-secondary">
+              <i class="bi bi-layers-fill"></i>
+              <span>Case Studies</span>
+              <span class="cta-pill-count">15+</span>
             </a>
-            <a href="assets/doc/M_ANAS.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary-3d">
-              <i class="fa fa-download"></i> Download CV
+            <a href="assets/doc/M_ANAS.pdf" target="_blank" rel="noopener noreferrer" class="hero-cta-ghost btn-hero-ghost" title="Download CV (PDF)">
+              <i class="bi bi-file-earmark-arrow-down-fill"></i>
+              <span>Download CV</span>
             </a>
           </div>
 
           <!-- Quick Contact Chips -->
-          <div class="d-flex flex-wrap gap-2 align-items-center">
-            <button type="button" class="btn-secondary-3d py-2 px-3" style="font-size: 13px;"
+          <div class="hero-meta-strip">
+            <button type="button" class="hero-meta-chip hero-chip-copy"
               onclick="copyContactEmail()" title="Click to copy email">
-              <i class="bi bi-envelope-fill text-primary"></i> anusiqbal33@gmail.com <i
-                class="bi bi-clipboard ms-1"></i>
+              <i class="bi bi-envelope-at-fill text-primary"></i>
+              <span class="meta-chip-text">anusiqbal33@gmail.com</span>
+              <i class="bi bi-clipboard ms-1 opacity-75"></i>
             </button>
             <a href="https://wa.me/923162732897" target="_blank" rel="noopener noreferrer"
-              class="btn-secondary-3d py-2 px-3" style="font-size: 13px;">
-              <i class="bi bi-whatsapp text-success"></i> +92 316 2732897
+              class="hero-meta-chip">
+              <i class="bi bi-whatsapp text-success"></i>
+              <span class="meta-chip-text">+92 316 2732897</span>
             </a>
-            <span class="btn-secondary-3d py-2 px-3" style="font-size: 13px; cursor: default;">
-              <i class="bi bi-geo-alt-fill text-danger"></i> Karachi, Pakistan
-            </span>
           </div>
         </div>
 
@@ -793,6 +807,8 @@
               <span class="pulse-active-dot"></span>
               <span id="activeCountText">0</span> Windows Active
             </span>
+            <span id="menubarClock" class="font-mono text-muted d-none d-sm-inline ms-1"
+              style="font-size: 11px;"></span>
           </div>
 
           <div class="desktop-action-buttons">
@@ -1054,7 +1070,7 @@
           <div class="quote-live-summary-card">
             <div class="summary-top-head">
               <h4 style="color: var(--text-heading);">Quotation Summary</h4>
-              <span class="summary-tag-badge">Live Scope</span>
+              <!-- <span class="summary-tag-badge">Live Scope</span> -->
             </div>
 
             <div class="summary-spec-item">
@@ -1182,7 +1198,7 @@
         <h4 class="mb-3" style="color: var(--text-heading);"><i class="bi bi-send text-primary me-2"></i>Send Quick
           Message via Direct Email</h4>
         <form
-          onsubmit="event.preventDefault(); const n=document.getElementById('msg-author-name').value; const m=document.getElementById('msg-author-body').value; window.location.href=`mailto:anusiqbal33@gmail.com?subject=Inquiry from ${encodeURIComponent(n)}&body=${encodeURIComponent(m)}`;">
+          onsubmit="event.preventDefault(); const n=document.getElementById('msg-author-name').value; const e=document.getElementById('msg-author-email').value; const m=document.getElementById('msg-author-body').value; const bodyText=`Name: ${n}\nEmail: ${e}\n\nMessage:\n${m}`; window.location.href=`mailto:anusiqbal33@gmail.com?subject=Inquiry from ${encodeURIComponent(n)}&body=${encodeURIComponent(bodyText)}`;">
           <div class="row g-3">
             <div class="col-md-6">
               <input type="text" id="msg-author-name" class="quote-form-input" placeholder="Your Name" required>
@@ -1237,6 +1253,61 @@
     <a href="#hero" class="scroll-top-btn" title="Back to Top" aria-label="Back to Top">
       <i class="bi bi-arrow-up"></i>
     </a>
+  </div>
+
+  <!-- Floating Theme Switcher Button (Bottom Left) -->
+  <div id="floating-theme-action" class="floating-theme-action">
+    <button type="button" class="floating-theme-btn" onclick="toggleThemeStudio()" title="Theme Studio (20 Palettes)">
+      <i class="bi bi-palette2"></i>
+      <span class="floating-theme-label">Theme Studio</span>
+      <span class="floating-theme-count">20</span>
+    </button>
+  </div>
+
+  <!-- ======= THEME STUDIO MODAL (20 PALETTES) ======= -->
+  <div id="theme-studio-modal" class="modal-overlay">
+    <div class="modal-window theme-studio-window">
+      <div class="theme-studio-header">
+        <div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="section-badge mb-0"><i class="bi bi-palette2"></i> Color Engine</span>
+            <span id="theme-active-tag" class="badge font-mono"
+              style="background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--primary);">Active
+              Theme</span>
+          </div>
+          <h3 class="theme-studio-title mt-2 mb-1">Executive Theme Studio</h3>
+          <p class="text-muted mb-0" style="font-size: 13px;">Instant real-time color switching with 20 curated palettes
+            across 3 distinct aesthetics.</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="btn-theme-shuffle" onclick="shuffleTheme()" title="Pick a random theme">
+            <i class="bi bi-shuffle"></i> <span>Surprise Me</span>
+          </button>
+          <button type="button" class="modal-close-btn position-static" onclick="closeThemeStudio()">&times;</button>
+        </div>
+      </div>
+
+      <!-- Theme Filter Pills -->
+      <div class="theme-filter-row mt-3">
+        <button type="button" class="theme-filter-btn active" data-filter="all" onclick="filterThemeCards('all')">
+          All Palettes <span class="count">20</span>
+        </button>
+        <button type="button" class="theme-filter-btn" data-filter="light" onclick="filterThemeCards('light')">
+          ☀️ Light <span class="count">7</span>
+        </button>
+        <button type="button" class="theme-filter-btn" data-filter="dark" onclick="filterThemeCards('dark')">
+          🌙 Dark <span class="count">7</span>
+        </button>
+        <button type="button" class="theme-filter-btn" data-filter="neon" onclick="filterThemeCards('neon')">
+          ⚡ Neon &amp; Funky <span class="count">6</span>
+        </button>
+      </div>
+
+      <!-- Theme Cards Container -->
+      <div class="theme-grid-container mt-2" id="themeCardsGrid">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </div>
   </div>
 
   <!-- Toast Notification Box -->
