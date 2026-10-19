@@ -1992,7 +1992,7 @@ function applyPalette(themeInput, save = true) {
     try {
       localStorage.setItem('anas_portfolio_theme', theme.id);
     } catch (e) { }
-    showAppToast(`🎨 Theme: ${theme.name}`, "bi-palette2");
+    showAppToast(`Theme: ${theme.name}`, "bi-circle-half");
   }
 }
 window.applyPalette = applyPalette;
@@ -2078,6 +2078,11 @@ function initThemeStudio() {
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) closeThemeStudio();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeThemeStudio();
+      }
     });
   }
 
